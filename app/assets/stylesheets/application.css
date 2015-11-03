@@ -27,16 +27,20 @@ a {
   display: inline-block;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .title-text {
   font-family: 'Lora', serif;
 }
 
 /* Header Box at top of each page */
 .header-box {
-  border: 1px solid #22A7F0;
+  border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: #22A7F0;
+  background-color: rgba(34,167,240,.7);
   box-shadow: 3px 10px 7px #22A7F0;
 }
 
@@ -47,10 +51,10 @@ a {
 
 /* Each block element for a person in the list */
 .person-list-item {
-  border: 1px solid #3CB371;
+  border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: #3CB371;
+  background-color: rgba(60,179,113,.7);
   box-shadow: 3px 10px 7px #3CB371;
 }
 
@@ -70,11 +74,20 @@ a {
 
 /* Styling for each gift in list */
 .gift-list-item {
-  border: 1px solid #ADD8E6;
+  border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: #ADD8E6;
+  background-color: rgba(173,216,230,.7);
   box-shadow: 3px 10px 7px #ADD8E6;
+}
+
+/* Styling for all form box elements */
+.form-item {
+  border: 1px;
+  margin: 1.5em 20%;
+  padding: 1em;
+  background-color: rgba(89,171,227,.7);
+  box-shadow: 3px 10px 7px #59ABE3;
 }
 
 /* The gift item name in each block */
@@ -118,6 +131,10 @@ and (orientation : portrait) {
 }
 
 .gift-list-item {
+  margin: 1.5em 2%;
+}
+
+.form-item {
   margin: 1.5em 2%;
 }
   

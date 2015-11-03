@@ -2,12 +2,14 @@
   <h1>Create New Person</h1>
   <%= link_to 'Back', people_path, class: 'app-link' %>
 </div>
-<%= form_for @person do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="form-item">
+  <%= form_for @person do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>

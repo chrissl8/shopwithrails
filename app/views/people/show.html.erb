@@ -16,22 +16,23 @@
                  class: 'app-link'%>
   </p>
 <% end %>
-
-<h2>Add a gift:</h2>
-<%= form_for([@person, @person.gifts.build]) do |f| %>
-  <p>
-    <%= f.label :item %><br>
-    <%= f.text_field :item, placeholder: 'Enter Item...' %>
-  </p>
-  <p>
-    <%= f.label :store %><br>
-    <%= f.text_field :store, placeholder: 'Enter Store...' %>
-  </p>
-  <p>
-    <%= f.label :cost %><br>
-    <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="form-item">
+  <h2>Add a gift:</h2>
+  <%= form_for([@person, @person.gifts.build]) do |f| %>
+    <p>
+      <%= f.label :item %><br>
+      <%= f.text_field :item, placeholder: 'Enter Item...' %>
+    </p>
+    <p>
+      <%= f.label :store %><br>
+      <%= f.text_field :store, placeholder: 'Enter Store...' %>
+    </p>
+    <p>
+      <%= f.label :cost %><br>
+      <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>

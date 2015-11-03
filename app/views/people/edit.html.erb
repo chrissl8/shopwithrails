@@ -2,16 +2,14 @@
   <h1>Change Name &#9733; <%= @person.name %></h1>
   <%= link_to 'Back', people_path, class: 'app-link' %>
 </div>
-<%= form_for @person, url: person_path(@person), method: :patch do |f| %>
- 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+<div class="form-item">
+  <%= form_for @person, url: person_path(@person), method: :patch do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
