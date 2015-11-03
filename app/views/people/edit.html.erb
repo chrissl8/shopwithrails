@@ -1,0 +1,17 @@
+<h1>Editing Person</h1>
+ 
+<%= form_for @person, url: person_path(@person), method: :patch do |f| %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+
+<%= link_to 'Back', people_path %>

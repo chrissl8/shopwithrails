@@ -1,0 +1,12 @@
+<h1 class="title-text">ShopWithRails &#9733; People</h1>
+<p><%= link_to 'Add New Person', new_person_path, class: 'app-link' %></p>
+<% @people.each do |person| %>
+  <p class="person-list-item"><span class="person-list-name"><%= link_to person.name, person_path(person) %></span><br><br> 
+  <%= link_to 'Edit', edit_person_path(person),
+              class: 'app-link'  %> &#9733; 
+  <%= link_to 'Delete', person,
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'app-link' %>
+  </p>
+<% end %>

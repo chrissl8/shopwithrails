@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  text-align: center;
+  background-image: url('http://www.chrisslaight.com/dev/christmas-bg.jpg');
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Lora', serif;
+}
+
+.title-text {
+  font-family: 'Lora', serif;
+}
+
+/* Each block element for a person in the list */
+.person-list-item {
+  border: 1px solid #3CB371;
+  margin: 1.5em 20%;
+  padding: 1em;
+  background-color: #3CB371;
+  box-shadow: 3px 10px 7px #3CB371;
+}
+
+/* The person's name in each block */
+.person-list-name {
+  font-size: 2em;
+  font-family: 'Gloria Hallelujah';
+}
+
+/* Application-wide link style */
+.app-link {
+    border: 0px solid #F08080;
+    background-color: #F08080;
+    padding: .5em;
+    border-radius: 4px;
+}
