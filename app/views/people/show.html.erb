@@ -1,2 +1,36 @@
-<p><%= link_to 'Home', controller: 'people' %></p>
-<p>Viewing Page for: <%= @person.name %></p>
+<h1 class="title-text">ShopWithRails &#9733; <%= @person.name %></h1>
+
+<h2>Gifts</h2>
+  <% @person.gifts.each do |gift| %>
+  <p class="gift-list-item">
+      <span class="gift-list-name"><%= gift.item %></span><br><br>
+      <strong>Store:</strong>
+      <%= gift.store %> | 
+      <strong>Cost:</strong>
+      <%= gift.cost %><br><br>
+    <%= link_to 'Remove Gift', [gift.person, gift],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a gift:</h2>
+<%= form_for([@person, @person.gifts.build]) do |f| %>
+  <p>
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </p>
+  <p>
+    <%= f.label :store %><br>
+    <%= f.text_field :store %>
+  </p>
+  <p>
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p><%= link_to 'Home', controller: 'people', class: 'app-link' %></p>

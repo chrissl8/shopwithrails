@@ -17,6 +17,7 @@
 body {
   text-align: center;
   background-image: url('http://www.chrisslaight.com/dev/christmas-bg.jpg');
+  font-family: 'Lora', serif;
 }
 
 a {
@@ -50,4 +51,19 @@ a {
     background-color: #F08080;
     padding: .5em;
     border-radius: 4px;
+}
+
+/* Styling for each gift in list */
+.gift-list-item {
+  border: 1px solid #ADD8E6;
+  margin: 1.5em 20%;
+  padding: 1em;
+  background-color: #ADD8E6;
+  box-shadow: 3px 10px 7px #ADD8E6;
+}
+
+/* The gift item name in each block */
+.gift-list-name {
+  font-size: 2em;
+  font-family: 'Gloria Hallelujah';
 }
