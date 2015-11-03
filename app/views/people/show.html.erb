@@ -1,5 +1,7 @@
-<h1 class="title-text">ShopWithRails &#9733; <%= @person.name %></h1>
-
+<div class="header-box">
+  <h1 class="title-text">ShopWithRails &#9733; <%= @person.name %></h1>
+  <span class="app-link"><%= link_to 'Home', controller: 'people' %></span>
+</div>
 <h2>Gifts</h2>
   <% @person.gifts.each do |gift| %>
   <p class="gift-list-item">
@@ -10,7 +12,8 @@
       <%= gift.cost %><br><br>
     <%= link_to 'Remove Gift', [gift.person, gift],
                  method: :delete,
-                 data: { confirm: 'Are you sure?' } %>
+                 data: { confirm: 'Are you sure?' },
+                 class: 'app-link'%>
   </p>
 <% end %>
 
@@ -18,19 +21,17 @@
 <%= form_for([@person, @person.gifts.build]) do |f| %>
   <p>
     <%= f.label :item %><br>
-    <%= f.text_field :item %>
+    <%= f.text_field :item, placeholder: 'Enter Item...' %>
   </p>
   <p>
     <%= f.label :store %><br>
-    <%= f.text_field :store %>
+    <%= f.text_field :store, placeholder: 'Enter Store...' %>
   </p>
   <p>
     <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
+    <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
   </p>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
-
-<span class="app-link"><%= link_to 'Home', controller: 'people' %></span>

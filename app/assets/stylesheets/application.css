@@ -82,3 +82,43 @@ a {
   font-size: 2em;
   font-family: 'Gloria Hallelujah';
 }
+
+/* Gift Form Styling */
+#gift_item, #gift_store, #gift_cost, #person_name {
+  font-size: 1.2em;
+  font-family: 'Lora', serif;
+  padding: .5em;
+}
+
+/* Global button styling */
+form input[type=submit] {
+  font-size: 1.2em;
+  border: 0px solid #F08080;
+  background-color: #F08080;
+  padding: .5em;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+
+
+/* Responsive CSS Media Query for Mobile Devices */
+@media only screen  
+and (max-device-width : 375px) 
+and (orientation : portrait) {
+  
+.header-box {
+  margin: 1.5em 2%;
+}
+
+.person-list-item {
+  margin: 1.5em 2%;
+}
+
+.gift-list-item {
+  margin: 1.5em 2%;
+}
+  
+}
