@@ -1,41 +1,44 @@
-<div class="header-box">
+<div class="header-nav-show">
   <h1 class="title-text">ShopWithRails &#9733; <%= @person.name %></h1>
   <span class="app-link"><%= link_to 'Home', controller: 'people' %></span>
 </div>
-<h2>Gifts</h2>
-<p id="toggle-button"><span class="app-link">Toggle Simple List</span></p>
-  <% @person.gifts.each do |gift| %>
-  <div class="gift-list-item">
-      <span class="gift-list-name"><%= gift.item %></span><br><br>
-      <div class="gift-extra-data">
-        <strong>Store:</strong>
-        <%= gift.store %> | 
-        <strong>Cost:</strong>
-        <%= gift.cost %><br><br>
-        <%= link_to 'Remove Gift', [gift.person, gift],
-                   method: :delete,
-                   data: { confirm: 'Are you sure?' },
-                   class: 'app-link'%>
-      </div>
-  </div>
-<% end %>
-<div class="form-item">
-  <h2>Add a gift:</h2>
-  <%= form_for([@person, @person.gifts.build]) do |f| %>
-    <p>
-      <%= f.label :item %><br>
-      <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
-    </p>
-    <p>
-      <%= f.label :store %><br>
-      <%= f.text_field :store, placeholder: 'Enter Store...' %>
-    </p>
-    <p>
-      <%= f.label :cost %><br>
-      <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+<div class="navspacer-show"></div>
+<div class="page-content">
+  <h2>Gifts</h2>
+  <p id="toggle-button"><span class="app-link">Toggle Simple List</span></p>
+    <% @person.gifts.each do |gift| %>
+    <div class="gift-list-item">
+        <span class="gift-list-name"><%= gift.item %></span><br><br>
+        <div class="gift-extra-data">
+          <strong>Store:</strong>
+          <%= gift.store %> | 
+          <strong>Cost:</strong>
+          <%= gift.cost %><br><br>
+          <%= link_to 'Remove Gift', [gift.person, gift],
+                     method: :delete,
+                     data: { confirm: 'Are you sure?' },
+                     class: 'app-link'%>
+        </div>
+    </div>
   <% end %>
+  <div class="form-item">
+    <h2>Add a gift:</h2>
+    <%= form_for([@person, @person.gifts.build]) do |f| %>
+      <p>
+        <%= f.label :item %><br>
+        <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
+      </p>
+      <p>
+        <%= f.label :store %><br>
+        <%= f.text_field :store, placeholder: 'Enter Store...' %>
+      </p>
+      <p>
+        <%= f.label :cost %><br>
+        <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
 </div>

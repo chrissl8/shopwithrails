@@ -21,6 +21,7 @@ body {
 	background-repeat: no-repeat;
 	/* background-size: cover; */
   font-family: 'Lora', serif;
+  margin: 0 0 0 0;
 }
 
 a {
@@ -46,6 +47,20 @@ a:hover {
   background-color: rgba(34,167,240,.7);
   box-shadow: 3px 10px 7px #22A7F0;
 }
+
+.header-nav, .header-nav-show {
+  background-color: rgba(34,167,240,.7);
+  box-shadow: 3px 10px 7px #22A7F0;
+  width: 100%;
+	position: fixed;
+	/* margin: 0 auto; */
+	overflow: auto;
+}
+
+.navspacer { 
+  padding-top: 10em;
+}
+  
 
 /* Header box title text */
 .header-box h1 {
@@ -146,5 +161,25 @@ and (orientation : portrait) {
 .form-item {
   margin: 1.5em 2%;
 }
-  
+
+.header-nav-show {
+  height: 5em;
+}
+
+.navspacer { 
+  padding-top: 8em;
+}
+
+.navspacer-show { 
+  padding-top: 4em;
+}
+
+.title-text {
+  font-size: 1em;
+}
+
+.title-text-small {
+  font-size: .8em;
+}
+
 }

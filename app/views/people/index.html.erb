@@ -1,15 +1,18 @@
-<div class="header-box">
+<div class="header-nav">
   <h1 class="title-text">ShopWithRails &#9733; Home</h1>
-  <p>Click on a name below to view or add gifts, or Add New Person to add someone new to your list.</p>
-  <p><%= link_to 'Add New Person', new_person_path, class: 'app-link' %> </p> 
+  <p class="title-text-small">Click on a name below to view or add gifts, or Add New Person to add someone new to your list.</p>
+  <p><span class="app-link"><%= link_to 'Add New Person', new_person_path %></span> </p> 
 </div>
-<% @people.each do |person| %>
-  <p class="person-list-item"><span class="person-list-name"><%= link_to person.name, person_path(person) %></span><br><br> 
-  <%= link_to 'Change Name', edit_person_path(person),
-              class: 'app-link'  %> &#9733; 
-  <%= link_to 'Remove', person,
-              method: :delete,
-              data: { confirm: 'Are you sure?' },
-              class: 'app-link' %>
-  </p>
+<div class="navspacer"></div>
+<div class="page-content">
+  <% @people.each do |person| %>
+    <p class="person-list-item"><span class="person-list-name"><%= link_to person.name, person_path(person) %></span><br><br> 
+    <%= link_to 'Change Name', edit_person_path(person),
+                class: 'app-link'  %> &#9733; 
+    <%= link_to 'Remove', person,
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'app-link' %>
+    </p>
 <% end %>
+</div>
