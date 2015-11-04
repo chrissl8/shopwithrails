@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready page:load', function() {
+	$('#toggle-button').on('click tap', function() {
+	  $('.gift-extra-data').slideToggle(500);
+	});
+});

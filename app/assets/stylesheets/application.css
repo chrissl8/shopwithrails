@@ -16,7 +16,10 @@
 
 body {
   text-align: center;
-  background-image: url('http://www.chrisslaight.com/dev/christmas-bg.jpg');
+  background-image: url('http://www.chrisslaight.com/dev/snow-background.jpg');
+  background-position: center center;
+	background-repeat: no-repeat;
+	/* background-size: cover; */
   font-family: 'Lora', serif;
 }
 
@@ -79,6 +82,7 @@ a:hover {
   padding: 1em;
   background-color: rgba(173,216,230,.7);
   box-shadow: 3px 10px 7px #ADD8E6;
+  word-wrap: break-word;
 }
 
 /* Styling for all form box elements */
@@ -101,6 +105,11 @@ a:hover {
   font-size: 1.2em;
   font-family: 'Lora', serif;
   padding: .5em;
+}
+
+/* Specific style for toggle button */
+#toggle-button {
+  cursor: pointer;
 }
 
 /* Global button styling */

@@ -6,7 +6,7 @@
   <%= form_for @person, url: person_path(@person), method: :patch do |f| %>
     <p>
       <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, required: true %>
     </p>
     <p>
       <%= f.submit %>
