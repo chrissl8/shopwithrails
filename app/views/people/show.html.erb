@@ -1,5 +1,12 @@
 <div class="header-nav-show">
-  <h1 class="title-text">ShopWithRails &#9733; <%= @person.name %></h1>
+  <h1 class="title-text">ShopWithRails &#9733; <% 
+  @currname = String.new
+  if @person.name.length < 16 then
+    @currname = @person.name
+  else
+    @currname = @person.name[0..16] + "..."
+  end
+  %> <%= @currname %></h1>
   <span class="app-link"><%= link_to 'Home', controller: 'people' %></span>
 </div>
 <div class="navspacer-show"></div>
@@ -25,15 +32,12 @@
     <h2>Add a gift:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>
       <p>
-        <%= f.label :item %><br>
         <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
       </p>
       <p>
-        <%= f.label :store %><br>
         <%= f.text_field :store, placeholder: 'Enter Store...' %>
       </p>
       <p>
-        <%= f.label :cost %><br>
         <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
       </p>
       <p>

@@ -57,7 +57,15 @@ a:hover {
 	overflow: auto;
 }
 
+.header-nav-show {
+  height: 10em;
+}
+
 .navspacer { 
+  padding-top: 10em;
+}
+
+.navspacer-show { 
   padding-top: 10em;
 }
   
@@ -74,12 +82,15 @@ a:hover {
   padding: 1em;
   background-color: rgba(60,179,113,.7);
   box-shadow: 3px 10px 7px #3CB371;
+  word-wrap: break-word; /* Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
+  word-break: break-all; /* Ok this actually fixes the problem */
 }
 
 /* The person's name in each block */
 .person-list-name {
   font-size: 2em;
   font-family: 'Gloria Hallelujah';
+  word-wrap: break-word; /* Fixes issue with display in rendering long names */
 }
 
 /* Application-wide link style */
@@ -88,6 +99,7 @@ a:hover {
     background-color: #F08080;
     padding: .5em;
     border-radius: 4px;
+    font-size: 1.2em;
 }
 
 /* Styling for each gift in list */
@@ -120,12 +132,20 @@ a:hover {
   font-size: 1.2em;
   font-family: 'Lora', serif;
   padding: .5em;
+  border: 2px solid #22A7F0;
+  background-color: rgba(255,255,255,.0);
+  -webkit-appearance: none;
 }
 
 /* Specific style for toggle button */
 #toggle-button {
   cursor: pointer;
 }
+
+#toggle-button:hover {
+  text-decoration: underline;
+}
+
 
 /* Global button styling */
 form input[type=submit] {
@@ -137,6 +157,11 @@ form input[type=submit] {
   cursor: pointer;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  font-family: 'Lora', serif;
+}
+
+form input[type=submit]:hover {
+  text-decoration: underline;
 }
 
 
