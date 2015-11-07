@@ -6,13 +6,15 @@
 <div class="navspacer"></div>
 <div class="page-content">
   <% @people.each do |person| %>
-    <p class="person-list-item"><span class="person-list-name"><%= link_to person.name, person_path(person) %></span><br><br> 
-    <%= link_to 'Change Name', edit_person_path(person),
-                class: 'app-link'  %> &#9733; 
-    <%= link_to 'Remove', person,
-                method: :delete,
-                data: { confirm: 'Are you sure?' },
-                class: 'app-link' %>
-    </p>
+    <div class="person-list-item"><span class="person-list-name"><%= link_to person.name, person_path(person) %></span>
+      <div>
+        <%= link_to 'Change Name', edit_person_path(person),
+                    class: 'app-link'  %> &#9733; 
+        <%= link_to 'Remove', person,
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' },
+                    class: 'app-link' %>
+      </div>
+    </div>
 <% end %>
 </div>

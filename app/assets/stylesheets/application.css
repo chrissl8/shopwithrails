@@ -46,6 +46,7 @@ a:hover {
   padding: 1em;
   background-color: rgba(34,167,240,.7);
   box-shadow: 3px 10px 7px #22A7F0;
+  border-radius: 4px;
 }
 
 .header-nav, .header-nav-show {
@@ -79,11 +80,12 @@ a:hover {
 .person-list-item {
   border: 1px;
   margin: 1.5em 20%;
-  padding: 1em;
+  padding: 0.3em;
   background-color: rgba(60,179,113,.7);
   box-shadow: 3px 10px 7px #3CB371;
   word-wrap: break-word; /* Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
   word-break: break-all; /* Ok this actually fixes the problem */
+  border-radius: 4px;
 }
 
 /* The person's name in each block */
@@ -106,10 +108,11 @@ a:hover {
 .gift-list-item {
   border: 1px;
   margin: 1.5em 20%;
-  padding: 1em;
   background-color: rgba(173,216,230,.7);
   box-shadow: 3px 10px 7px #ADD8E6;
   word-wrap: break-word;
+  border-radius: 4px;
+  padding: 0.3em;
 }
 
 /* Styling for all form box elements */
@@ -119,6 +122,7 @@ a:hover {
   padding: 1em;
   background-color: rgba(89,171,227,.7);
   box-shadow: 3px 10px 7px #59ABE3;
+  border-radius: 4px;
 }
 
 /* The gift item name in each block */
@@ -158,7 +162,7 @@ form input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
+  -webkit-border-radius: 4;
   font-family: 'Lora', serif;
 }
 
@@ -174,19 +178,19 @@ and (max-device-width : 375px)
 and (orientation : portrait) {
   
 .header-box {
-  margin: 1.5em 2%;
+  margin: 1.5em 0%;
 }
 
 .person-list-item {
-  margin: 1.5em 2%;
+  margin: 1.5em 0%;
 }
 
 .gift-list-item {
-  margin: 1.5em 2%;
+  margin: 1.5em 0%;
 }
 
 .form-item {
-  margin: 1.5em 2%;
+  margin: 1.5em 0%;
 }
 
 .header-nav-show {

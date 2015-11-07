@@ -1,10 +1,11 @@
 <div class="header-nav-show">
-  <h1 class="title-text">ShopWithRails &#9733; <% 
-  @currname = String.new
-  if @person.name.length < 16 then
-    @currname = @person.name
-  else
-    @currname = @person.name[0..16] + "..."
+  <h1 class="title-text">Gift List for <% 
+  #The following logic is to truncate names in excess of 16 characters due to header display issues
+  @currname = String.new #define instance variable to store display name
+  if @person.name.length < 16 then #if the name is less than 16 chars
+    @currname = @person.name #just show the name
+  else #otherwise...
+    @currname = @person.name[0..16] + "..." #truncate anything after 16 characters and append ... to the end
   end
   %> <%= @currname %></h1>
   <span class="app-link"><%= link_to 'Home', controller: 'people' %></span>
@@ -12,11 +13,13 @@
 <div class="navspacer-show"></div>
 <div class="page-content">
   <h2>Gifts</h2>
-  <p id="toggle-button"><span class="app-link">Toggle Simple List</span></p>
+  <p id="toggle-button"><span class="app-link">Show/Hide Details</span></p>
     <% @person.gifts.each do |gift| %>
     <div class="gift-list-item">
         <span class="gift-list-name"><%= gift.item %></span><br><br>
         <div class="gift-extra-data">
+          
+          
           <strong>Store:</strong>
           <%= gift.store %> | 
           <strong>Cost:</strong>
@@ -32,7 +35,7 @@
     <h2>Add a gift:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>
       <p>
-        <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
+        <%= f.text_field :item, required: true, placeholder: 'Enter Item...', autofocus: true %>
       </p>
       <p>
         <%= f.text_field :store, placeholder: 'Enter Store...' %>
