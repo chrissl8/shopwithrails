@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103014326) do
+ActiveRecord::Schema.define(version: 20151107205527) do
 
   create_table "gifts", force: :cascade do |t|
     t.string   "item"
     t.string   "store"
     t.string   "cost"
     t.integer  "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "purchased",  default: 0
   end
 
   add_index "gifts", ["person_id"], name: "index_gifts_on_person_id"
