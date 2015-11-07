@@ -16,18 +16,29 @@
   <p id="toggle-button"><span class="app-link">Show/Hide Details</span></p>
     <% @person.gifts.each do |gift| %>
     <div class="gift-list-item">
-        <span class="gift-list-name"><%= gift.item %></span><br><br>
+        <span class="gift-list-name"><%= gift.item %></span>
         <div class="gift-extra-data">
+          <br>
+          <% #The following logic exists to hide the Store & Cost attributes if they're left blank
+          if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
+          %>
+          <!-- Intentionally blank -->
+          <% else #otherwise, display the Store/Cost attributes for this gift
+          %>
           
+          <div>
+            <strong>Store:</strong>
+            <%= gift.store %> | 
+            <strong>Cost:</strong>
+            <%= gift.cost %>
+          </div>
+          <br>
           
-          <strong>Store:</strong>
-          <%= gift.store %> | 
-          <strong>Cost:</strong>
-          <%= gift.cost %><br><br>
+          <% end #end if-else logic for store/cost%>
           <%= link_to 'Remove Gift', [gift.person, gift],
-                     method: :delete,
-                     data: { confirm: 'Are you sure?' },
-                     class: 'app-link'%>
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' },
+                       class: 'app-link'%>
         </div>
     </div>
   <% end %>
