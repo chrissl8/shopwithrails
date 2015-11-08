@@ -83,7 +83,7 @@ a:hover {
   padding: 0.3em;
   background-color: rgba(60,179,113,.7);
   box-shadow: 3px 10px 7px #3CB371;
-  word-wrap: break-word; /* Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
+  /* word-wrap: break-word; Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
   word-break: break-all; /* Ok this actually fixes the problem */
   border-radius: 4px;
 }
@@ -91,8 +91,21 @@ a:hover {
 /* The person's name in each block */
 .person-list-name {
   font-size: 2em;
-  font-family: 'Gloria Hallelujah';
   word-wrap: break-word; /* Fixes issue with display in rendering long names */
+  /* The below is for better visibility for Person names on the Index screen */
+  background-color: #019875;
+  border-radius: 4px;
+  padding: .05em 1em;
+  margin: 0px 10%;
+}
+
+.person-list-name a {
+  display: block;
+}
+
+/* Separately define the details of a person (change name/remove) */
+.person-list-details {
+  margin-top: .5em;
 }
 
 /* Application-wide link style */
