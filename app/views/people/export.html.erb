@@ -1,1 +1,15 @@
-<h1>Test Export Page</h1>
+<div class="header-box">
+  <h1>Export Gift List</h1>
+  <span class="app-link"><%= link_to 'Home', controller: 'people' %></span> &#9733; 
+  <a class="app-link" href="javascript:window.print()">Print</a>
+</div>
+<div class="export-pane">
+  <% @people.each do |person| %>
+    <h1> <%= person.name %></h1>
+      <% person.gifts.each do |gift| %>
+      <ul>
+      <li><%= gift.item %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

@@ -7,6 +7,11 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
   
+  #Export controller to list all people with gifts
+  def export
+    @people = Person.all
+  end
+  
   #Edit action to edit person
   def edit
     @person = Person.find(params[:id])

@@ -183,6 +183,15 @@ form input[type=submit]:hover {
   text-decoration: underline;
 }
 
+/* Export functionality styling */
+
+.export-pane {
+  text-align: left;
+  margin: 0 25%;
+  background-color: white;
+  padding: 0.5em;
+}
+
 
 
 /* Responsive CSS Media Query for Mobile Devices */
@@ -211,7 +220,7 @@ and (orientation : portrait) {
 }
 
 .navspacer { 
-  padding-top: 8em;
+  padding-top: 9em;
 }
 
 .navspacer-show { 
@@ -224,6 +233,10 @@ and (orientation : portrait) {
 
 .title-text-small {
   font-size: .8em;
+}
+
+.export-pane {
+  margin: 0 0%;
 }
 
 }
