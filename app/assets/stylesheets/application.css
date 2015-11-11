@@ -45,7 +45,7 @@ a {
   border-radius: 4px;
 }
 
-.header-nav, .header-nav-show {
+.header-nav, .header-nav-show, .header-nav-new, .header-nav-edit {
   background-color: rgba(34,167,240,.7);
   box-shadow: 0px 0px 7px #22A7F0;
   width: 100%;
@@ -58,11 +58,27 @@ a {
   height: 10em;
 }
 
+.header-nav-new {
+  height: 10em;
+}
+
+.header-nav-edit {
+  height: 10em;
+}
+
 .navspacer { 
   padding-top: 10em;
 }
 
 .navspacer-show { 
+  padding-top: 10em;
+}
+
+.navspacer-new { 
+  padding-top: 10em;
+}
+
+.navspacer-edit { 
   padding-top: 10em;
 }
   
@@ -239,6 +255,23 @@ and (orientation : portrait) {
 .navspacer-show { 
   padding-top: 4.5em;
 }
+
+.header-nav-new {
+  height: 4.5em;
+}
+
+.header-nav-edit {
+  height: 6em;
+}
+
+.navspacer-new { 
+  padding-top: 6em;
+}
+
+.navspacer-edit { 
+  padding-top: 6em;
+}
+  
 
 .title-text {
   font-size: 1em;

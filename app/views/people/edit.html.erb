@@ -1,7 +1,8 @@
-<div class="header-box">
-  <h1>Change Name &#9733; <%= @person.name %></h1>
+<div class="header-nav-edit">
+  <h1 class="title-text">Change Name &#9733; <%= @person.name %></h1>
   <%= link_to 'Back', people_path, class: 'app-link' %>
 </div>
+<div class="navspacer-edit"></div>
 <div class="form-item">
   <%= form_for @person, url: person_path(@person), method: :patch do |f| %>
     <p>
