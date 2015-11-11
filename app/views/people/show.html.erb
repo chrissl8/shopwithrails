@@ -23,6 +23,14 @@
     <div class="gift-list-item">
         <span class="gift-list-name"><%= gift.item %></span>
         <div class="gift-extra-data">
+          <div class="gift-list-dates">
+            <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
+              if gift.created_at == gift.updated_at then%>
+                Created <%= time_ago_in_words(gift.created_at) %> ago
+            <% else %>
+                Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
+            <% end %>
+          </div>
           <br>
           <% #The following logic exists to hide the Store & Cost attributes if they're left blank
           if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
