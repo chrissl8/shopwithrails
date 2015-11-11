@@ -14,13 +14,18 @@ class GiftsController < ApplicationController
   end
   
   def set_purchased_true
-    @person = Person.find(params[:person_id])
+    @person = Person.find(params[:id])
     @gift = @person.gifts.find(params[:id])
     @gift.update_attribute(:purchased, 1)
     redirect_to person_path(@person)
   end
   
-  
+  def set_purchased_false
+    @person = Person.find(params[:person_id])
+    @gift = @person.gifts.find(params[:id])
+    @gift.update_attribute(:purchased, 0)
+    redirect_to person_path(@person)
+  end
   
   private
     def g_params

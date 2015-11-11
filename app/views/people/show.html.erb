@@ -8,7 +8,12 @@
     @currname = @person.name[0..16] + "..." #truncate anything after 16 characters and append ... to the end
   end
   %> <%= @currname %></h1>
-  <span class="app-link"><%= link_to 'Home', controller: 'people' %></span>
+  <span class="app-link small-link"><%= link_to 'Home', controller: 'people' %></span> &#9733; 
+  <%= link_to 'Change Name', edit_person_path(@person), class: 'app-link small-link'  %> &#9733; 
+  <%= link_to 'Remove', @person,
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' },
+                    class: 'app-link small-link' %>
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
@@ -16,7 +21,7 @@
   <p id="toggle-button"><span class="app-link">Show/Hide Details</span></p>
     <% @person.gifts.each do |gift| %>
     <div class="gift-list-item">
-        <span class="gift-list-name"><%= gift.item %></span>
+        <span class="gift-list-name"><%= gift.item %> | Purchased = <%= gift.purchased %></span>
         <div class="gift-extra-data">
           <br>
           <% #The following logic exists to hide the Store & Cost attributes if they're left blank
@@ -38,7 +43,7 @@
           <%= link_to 'Remove Gift', [gift.person, gift],
                        method: :delete,
                        data: { confirm: 'Are you sure?' },
-                       class: 'app-link'%>
+                       class: 'app-link'%> 
         </div>
     </div>
   <% end %>

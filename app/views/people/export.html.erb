@@ -8,7 +8,15 @@
     <h1> <%= person.name %></h1>
       <% person.gifts.each do |gift| %>
       <ul>
-      <li><%= gift.item %></li>
+      <li><%= gift.item %>
+      <% #The following logic exists to hide the Store & Cost attributes if they're left blank
+          if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
+          %>
+          <!-- Intentionally blank -->
+          <% else #otherwise, display the Store/Cost attributes for this gift
+          %> - Store: <%= gift.store %> - Cost: <%= gift.cost %> - &#9634;
+          <% end #end if-else logic for store/cost%>
+      </li>
       </ul>
     <% end %>
   <% end %>

@@ -80,7 +80,7 @@ a:hover {
 .person-list-item {
   border: 1px;
   margin: 1.5em 20%;
-  padding: 0.3em;
+  padding: 0.5em;
   background-color: rgba(60,179,113,.7);
   box-shadow: 3px 10px 7px #3CB371;
   /* word-wrap: break-word; Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
@@ -101,11 +101,6 @@ a:hover {
 
 .person-list-name a {
   display: block;
-}
-
-/* Separately define the details of a person (change name/remove) */
-.person-list-details {
-  margin-top: .5em;
 }
 
 /* Application-wide link style */
@@ -187,11 +182,14 @@ form input[type=submit]:hover {
 
 .export-pane {
   text-align: left;
-  margin: 0 25%;
+  margin: 0 20%;
   background-color: white;
   padding: 0.5em;
 }
 
+.export-pane li {
+  line-height: .4em;
+}
 
 
 /* Responsive CSS Media Query for Mobile Devices */
@@ -216,7 +214,7 @@ and (orientation : portrait) {
 }
 
 .header-nav-show {
-  height: 5em;
+  height: 5.5em;
 }
 
 .navspacer { 
@@ -224,7 +222,7 @@ and (orientation : portrait) {
 }
 
 .navspacer-show { 
-  padding-top: 4em;
+  padding-top: 4.5em;
 }
 
 .title-text {
@@ -237,6 +235,10 @@ and (orientation : portrait) {
 
 .export-pane {
   margin: 0 0%;
+}
+
+.small-link {
+  font-size: 1em;
 }
 
 }

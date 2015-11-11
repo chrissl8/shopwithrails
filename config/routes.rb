@@ -6,5 +6,18 @@ Rails.application.routes.draw do
   
   get '/export', to: 'people#export'
   
+#get '/purchased_true', to: 'gifts#set_purchased_true'
+  get '/purchased_false', to: 'gifts#set_purchased_false'
+  
+  resources :people do
+    resources :gifts do
+      member do
+        get '/purchased_true', to: 'gifts#set_purchased_true'
+      end
+    end
+  end
+  
+  
+  
   root 'welcome#index'
 end
