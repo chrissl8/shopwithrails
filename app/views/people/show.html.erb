@@ -17,50 +17,96 @@
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
-  <h2>Gifts</h2>
-  <p id="toggle-button"><span class="app-link">Show/Hide Details</span></p>
+  <p class="gift-instructions">Click/Tap a gift to mark it as <span class="gift-list-item-purchased">Purchased</span> or <span class="gift-list-item-not-purchased">Not Purchased</span>, or expand Details for more options.</p>
+  <p id="toggle-button"><span class="app-link small-link">Show/Hide Details</span></p>
     <% @person.gifts.each do |gift| %>
-    <div class="gift-list-item">
-        <span class="gift-list-name"><%= gift.item %></span>
-        <div class="gift-extra-data">
-          <div class="gift-list-dates">
-            <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
-              if gift.created_at == gift.updated_at then%>
-                Created <%= time_ago_in_words(gift.created_at) %> ago
-            <% else %>
-                Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
-            <% end %>
+    
+    <% if gift.purchased == 0 then %>
+      <!-- Begin NOT-PURCHASED Gift Item -->
+      <div class="gift-list-item gift-list-item-not-purchased">
+        <p class="purchased-status gift-extra-data">Not Purchased Yet</p>
+        <%= link_to gift.item, purchased_true_person_gift_path(@person,gift), class: 'gift-list-name'  %>
+        <!--  <span class="gift-list-name"></span> -->
+          <div class="gift-extra-data">
+            <div class="gift-list-dates">
+              <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
+                if gift.created_at == gift.updated_at then%>
+                  Created <%= time_ago_in_words(gift.created_at) %> ago
+              <% else %>
+                  Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
+              <% end %>
+            </div>
+            <br>
+            <% #The following logic exists to hide the Store & Cost attributes if they're left blank
+            if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
+            %>
+            <!-- Intentionally blank -->
+            <% else #otherwise, display the Store/Cost attributes for this gift
+            %>
+            <div>
+              <strong>Store:</strong>
+              <%= gift.store %> &#9733; 
+              <strong>Cost:</strong>
+              <%= gift.cost %>
+            </div>
+            <br>
+            <% end #end if-else logic for store/cost%>
+            <%= link_to 'Remove', [gift.person, gift],
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' },
+                         class: 'app-link small-link'%> <br>
+            <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link'  %> <br>
+            <%= link_to 'Purchase', purchased_true_person_gift_path(@person,gift), class: 'app-link small-link'  %>
           </div>
-          <br>
-          <% #The following logic exists to hide the Store & Cost attributes if they're left blank
-          if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
-          %>
-          <!-- Intentionally blank -->
-          <% else #otherwise, display the Store/Cost attributes for this gift
-          %>
-          
-          <div>
-            <strong>Store:</strong>
-            <%= gift.store %> | 
-            <strong>Cost:</strong>
-            <%= gift.cost %>
+      </div>
+      <!-- End NOT-PURCHASED Gift Item -->
+    <% elsif gift.purchased == 1 %>
+      <!-- Begin PURCHASED Gift Item -->
+      <div class="gift-list-item gift-list-item-purchased">
+        <p class="purchased-status gift-extra-data">Gift Purchased</p>
+          <%= link_to gift.item, purchased_false_person_gift_path(@person,gift), class: 'gift-list-name'  %>
+        <!--  <span class="gift-list-name"></span> -->
+          <div class="gift-extra-data">
+            <div class="gift-list-dates">
+              <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
+                if gift.created_at == gift.updated_at then%>
+                  Created <%= time_ago_in_words(gift.created_at) %> ago
+              <% else %>
+                  Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
+              <% end %>
+            </div>
+            <br>
+            <% #The following logic exists to hide the Store & Cost attributes if they're left blank
+            if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
+            %>
+            <!-- Intentionally blank -->
+            <% else #otherwise, display the Store/Cost attributes for this gift
+            %>
+            <div>
+              <strong>Store:</strong>
+              <%= gift.store %> &#9733; 
+              <strong>Cost:</strong>
+              <%= gift.cost %>
+            </div>
+            <br>
+            <% end #end if-else logic for store/cost%>
+            <%= link_to 'Remove', [gift.person, gift],
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' },
+                         class: 'app-link small-link'%> <br>
+            <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link'  %> <br>
+            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(@person,gift), class: 'app-link small-link'  %>
           </div>
-          <br>
-          
-          <% end #end if-else logic for store/cost%>
-          <%= link_to 'Remove', [gift.person, gift],
-                       method: :delete,
-                       data: { confirm: 'Are you sure?' },
-                       class: 'app-link'%> | 
-          <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link'  %>
-        </div>
-    </div>
+      </div>
+      <!-- End PURCHASED Gift Item -->
+    <% end %>
+  
   <% end %>
   <div class="form-item">
     <h2>Add a gift:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>
       <p>
-        <%= f.text_field :item, required: true, placeholder: 'Enter Item...', autofocus: true %>
+        <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
       </p>
       <p>
         <%= f.text_field :store, placeholder: 'Enter Store...' %>

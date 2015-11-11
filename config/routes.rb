@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :gifts do
       member do
         get '/purchased_true', to: 'gifts#set_purchased_true'
+        get '/purchased_false', to: 'gifts#set_purchased_false'
       end
     end
   end
