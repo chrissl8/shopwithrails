@@ -31,10 +31,6 @@ a {
   display: inline-block;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .title-text {
   font-family: 'Lora', serif;
 }
@@ -45,13 +41,13 @@ a:hover {
   margin: 1.5em 20%;
   padding: 1em;
   background-color: rgba(34,167,240,.7);
-  box-shadow: 3px 10px 7px #22A7F0;
+  box-shadow: 0px 0px 7px #22A7F0;
   border-radius: 4px;
 }
 
 .header-nav, .header-nav-show {
   background-color: rgba(34,167,240,.7);
-  box-shadow: 3px 10px 7px #22A7F0;
+  box-shadow: 0px 0px 7px #22A7F0;
   width: 100%;
 	position: fixed;
 	/* margin: 0 auto; */
@@ -79,20 +75,29 @@ a:hover {
 /* Each block element for a person in the list */
 .person-list-item {
   border: 1px;
-  margin: 1.5em 20%;
+  margin: .5em 20%;
   padding: 0.5em;
   background-color: rgba(60,179,113,.7);
-  box-shadow: 3px 10px 7px #3CB371;
-  /* word-wrap: break-word; Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
-  word-break: break-all; /* Ok this actually fixes the problem */
+  box-shadow: 0px 0px 7px #3CB371;
+  word-wrap: break-word; /* Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
+  /* word-break: break-all;  Ok this actually fixes the problem */
   border-radius: 4px;
+  font-size: 2em;
 }
 
-/* The person's name in each block */
+.person-list-item a {
+  display: block;
+}
+
+.person-list-item:hover {
+  background-color: rgba(0,200,113,.7);
+}
+
+/* The person's name in each block 
 .person-list-name {
   font-size: 2em;
-  word-wrap: break-word; /* Fixes issue with display in rendering long names */
-  /* The below is for better visibility for Person names on the Index screen */
+  word-wrap: break-word;  Fixes issue with display in rendering long names 
+   The below is for better visibility for Person names on the Index screen 
   background-color: #019875;
   border-radius: 4px;
   padding: .05em 1em;
@@ -103,6 +108,8 @@ a:hover {
   display: block;
 }
 
+*/
+
 /* Application-wide link style */
 .app-link {
     border: 0px solid #F08080;
@@ -112,12 +119,16 @@ a:hover {
     font-size: 1.2em;
 }
 
+.app-link:hover {
+  background-color: #F64747;
+}
+
 /* Styling for each gift in list */
 .gift-list-item {
   border: 1px;
   margin: 1.5em 20%;
   background-color: rgba(173,216,230,.7);
-  box-shadow: 3px 10px 7px #ADD8E6;
+  box-shadow: 0px 0px 7px #ADD8E6;
   word-wrap: break-word;
   border-radius: 4px;
   padding: 0.3em;
@@ -175,7 +186,7 @@ form input[type=submit] {
 }
 
 form input[type=submit]:hover {
-  text-decoration: underline;
+  background-color: #F64747;
 }
 
 /* Export functionality styling */
@@ -202,11 +213,15 @@ and (orientation : portrait) {
 }
 
 .person-list-item {
-  margin: 1.5em 0%;
+  margin: .5em 2%;
 }
 
 .gift-list-item {
-  margin: 1.5em 0%;
+  margin: 1.5em 2%;
+}
+
+.gift-list-name {
+  font-size: 1.5em;
 }
 
 .form-item {

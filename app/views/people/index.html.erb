@@ -8,7 +8,7 @@
 <div class="page-content">
   <% @people.each do |person| %>
     <div class="person-list-item">
-      <div class="person-list-name"><%= link_to person.name, person_path(person) %></div>
+      <%= link_to person.name, person_path(person) %>
     </div>
 <% end %>
 </div>

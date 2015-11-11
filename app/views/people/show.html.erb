@@ -21,7 +21,7 @@
   <p id="toggle-button"><span class="app-link">Show/Hide Details</span></p>
     <% @person.gifts.each do |gift| %>
     <div class="gift-list-item">
-        <span class="gift-list-name"><%= gift.item %> | Purchased = <%= gift.purchased %></span>
+        <span class="gift-list-name"><%= gift.item %></span>
         <div class="gift-extra-data">
           <br>
           <% #The following logic exists to hide the Store & Cost attributes if they're left blank
