@@ -1,0 +1,22 @@
+<div class="header-nav-edit">
+  <h1 class="title-text">Editing Gift</h1>
+  <%= link_to 'Back', people_path, class: 'app-link' %>
+</div>
+<div class="navspacer-edit"></div>
+<div class="form-item">
+    <h2>Add a gift:</h2>
+    <%= form_for([@person, @gift]) do |f| %>
+      <p>
+        <%= f.text_field :item, required: true, placeholder: 'Enter Item...', autofocus: true %>
+      </p>
+      <p>
+        <%= f.text_field :store, placeholder: 'Enter Store...' %>
+      </p>
+      <p>
+        <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>

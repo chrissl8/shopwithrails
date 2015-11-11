@@ -6,6 +6,20 @@ class GiftsController < ApplicationController
     redirect_to person_path(@person)
   end
   
+  def edit
+    @gift = Gift.find(params[:id])
+  end
+  
+  def update
+    @person = Gift.find(params[:id]).person
+    @gift = Gift.find(params[:id])
+    if @gift.update(g_params)
+    redirect_to person_path(@person)
+    else
+      render 'edit'
+    end
+  end
+  
   def destroy
     @person = Person.find(params[:person_id])
     @gift = @person.gifts.find(params[:id])

@@ -48,10 +48,11 @@
           <br>
           
           <% end #end if-else logic for store/cost%>
-          <%= link_to 'Remove Gift', [gift.person, gift],
+          <%= link_to 'Remove', [gift.person, gift],
                        method: :delete,
                        data: { confirm: 'Are you sure?' },
-                       class: 'app-link'%> 
+                       class: 'app-link'%> | 
+          <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link'  %>
         </div>
     </div>
   <% end %>

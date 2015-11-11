@@ -248,6 +248,10 @@ and (orientation : portrait) {
   font-size: 1.5em;
 }
 
+.gift-list-dates {
+  font-size: 0.8em;
+}
+
 .form-item {
   margin: 1.5em 0%;
 }
