@@ -109,6 +109,10 @@ a {
   background-color: rgba(0,200,113,.7);
 }
 
+.person-list-dates {
+  font-size: 0.4em;
+}
+
 /* The person's name in each block 
 .person-list-name {
   font-size: 2em;
