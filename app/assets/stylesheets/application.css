@@ -199,6 +199,10 @@ a {
   font-size: 1em;
 }
 
+.gift-link {
+  margin: 0 25%;
+}
+
 /* Gift Form Styling */
 #gift_item, #gift_store, #gift_cost, #person_name {
   font-size: 1.2em;
@@ -215,11 +219,6 @@ a {
 #toggle-button {
   cursor: pointer;
 }
-
-#toggle-button:hover {
-  text-decoration: underline;
-}
-
 
 /* Global button styling */
 form input[type=submit] {
@@ -280,6 +279,10 @@ and (orientation : portrait) {
 
 .gift-instructions {
   font-size: 0.8em;
+}
+
+.gift-link {
+  margin: 0 5%;
 }
 
 .form-item {
