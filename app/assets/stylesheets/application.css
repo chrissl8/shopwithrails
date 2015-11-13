@@ -29,6 +29,7 @@ a {
   color: inherit;
   font-family: 'Lora', serif;
   display: inline-block;
+  cursor: pointer;
 }
 
 /* Welcome Page CSS */

@@ -17,8 +17,16 @@
 
 $(document).on('ready page:load', function() {
 	
-	$('#toggle-button').on('click tap', function() {
-	  $('.gift-extra-data').slideToggle(300);
+	$('#toggle-open').on('click tap', function() {
+	  $('.gift-extra-data').slideDown(300);
+	});
+	
+	$('#toggle-closed').on('click tap', function() {
+	  $('.gift-extra-data').slideUp(300);
+	});
+	
+	$('.gift-list-name').on('click tap', function(){
+		$(this).parent().children().closest('.gift-extra-data').slideToggle(300);
 	});
 
 });
