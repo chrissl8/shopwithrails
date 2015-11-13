@@ -24,9 +24,7 @@
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
       <div class="gift-list-item gift-list-item-not-purchased">
-        <p class="purchased-status gift-extra-data">Not Purchased Yet</p>
         <%= link_to gift.item, purchased_true_person_gift_path(@person,gift), class: 'gift-list-name'  %>
-        <!--  <span class="gift-list-name"></span> -->
           <div class="gift-extra-data">
             <div class="gift-list-dates">
               <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
@@ -37,20 +35,12 @@
               <% end %>
             </div>
             <br>
-            <% #The following logic exists to hide the Store & Cost attributes if they're left blank
-            if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
-            %>
-            <!-- Intentionally blank -->
-            <% else #otherwise, display the Store/Cost attributes for this gift
-            %>
-            <div>
-              <strong>Store:</strong>
-              <%= gift.store %> &#9733; 
-              <strong>Cost:</strong>
-              <%= gift.cost %>
-            </div>
+            <p class="gift-extra-data">
+            <strong>Status: </strong>Not Purchased Yet<br>
+            <strong>Store: </strong><%= gift.store %><br>
+            <strong>Cost: </strong><%= number_to_currency(gift.price) %>
+            </p>
             <br>
-            <% end #end if-else logic for store/cost%>
             <%= link_to 'Remove', [gift.person, gift],
                          method: :delete,
                          data: { confirm: 'Are you sure?' },
@@ -60,47 +50,37 @@
           </div>
       </div>
       <!-- End NOT-PURCHASED Gift Item -->
-    <% elsif gift.purchased == 1 %>
-      <!-- Begin PURCHASED Gift Item -->
-      <div class="gift-list-item gift-list-item-purchased">
-        <p class="purchased-status gift-extra-data">Gift Purchased</p>
+      <% elsif gift.purchased == 1 %>
+        <!-- Begin PURCHASED Gift Item -->
+        <div class="gift-list-item gift-list-item-purchased">
           <%= link_to gift.item, purchased_false_person_gift_path(@person,gift), class: 'gift-list-name' %>
-        <!--  <span class="gift-list-name"></span> -->
           <div class="gift-extra-data">
-            <div class="gift-list-dates">
-              <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
-                if gift.created_at == gift.updated_at then%>
-                  Created <%= time_ago_in_words(gift.created_at) %> ago
-              <% else %>
-                  Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
-              <% end %>
+              <div class="gift-list-dates">
+                <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
+                  if gift.created_at == gift.updated_at then%>
+                    Created <%= time_ago_in_words(gift.created_at) %> ago
+                <% else %>
+                    Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
+                <% end %>
+              </div>
+              <br>
+              <p class="gift-extra-data">
+              <strong>Status: </strong>Purchased<br>
+              <strong>Store: </strong><%= gift.store %><br>
+              <strong>Cost: </strong><%= number_to_currency(gift.price) %>
+              </p>
+              <br>
+              <%= link_to 'Remove', [gift.person, gift],
+                           method: :delete,
+                           data: { confirm: 'Are you sure?' },
+                           class: 'app-link small-link gift-link'%> <br>
+              <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %> <br>
+              <%= link_to 'Purchase', purchased_true_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %>
             </div>
-            <br>
-            <% #The following logic exists to hide the Store & Cost attributes if they're left blank
-            if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
-            %>
-            <!-- Intentionally blank -->
-            <% else #otherwise, display the Store/Cost attributes for this gift
-            %>
-            <div>
-              <strong>Store:</strong>
-              <%= gift.store %> &#9733; 
-              <strong>Cost:</strong>
-              <%= gift.cost %>
-            </div>
-            <br>
-            <% end #end if-else logic for store/cost%>
-            <%= link_to 'Remove', [gift.person, gift],
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' },
-                         class: 'app-link small-link gift-link'%> <br>
-            <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %> <br>
-            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %>
-          </div>
-      </div>
+        </div>
       <!-- End PURCHASED Gift Item -->
     <% end %>
-  
+  </div>
   <% end %>
   <div class="form-item">
     <h2>Add a gift:</h2>
@@ -112,7 +92,7 @@
         <%= f.text_field :store, placeholder: 'Enter Store...' %>
       </p>
       <p>
-        <%= f.text_field :cost, placeholder: 'Enter Cost...' %>
+        <%= f.text_field :price, placeholder: 'Enter Price...' %>
       </p>
       <p>
         <%= f.submit %>

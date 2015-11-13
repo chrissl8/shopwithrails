@@ -43,7 +43,7 @@ class GiftsController < ApplicationController
   
   private
     def g_params
-      params.require(:gift).permit(:item, :store, :cost)
+      params.require(:gift).permit(:item, :store, :cost, :price)
     end
   
 end

@@ -224,7 +224,7 @@ a {
 }
 
 /* Gift Form Styling */
-#gift_item, #gift_store, #gift_cost, #person_name {
+#gift_item, #gift_store, #gift_cost, #person_name, #gift_price {
   font-size: 1.2em;
   font-family: 'Lora', serif;
   padding: .5em;
