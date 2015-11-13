@@ -267,8 +267,13 @@ form input[type=submit]:hover {
   padding: 0.5em;
 }
 
+.no-gifts {
+  font-weight: 700;
+  color: red;
+}
+
 .export-pane li {
-  line-height: .4em;
+  line-height: 1em;
 }
 
 
