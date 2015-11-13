@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107205527) do
+ActiveRecord::Schema.define(version: 20151113174800) do
 
   create_table "gifts", force: :cascade do |t|
     t.string   "item"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151107205527) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "purchased",  default: 0
+    t.decimal  "price"
   end
 
   add_index "gifts", ["person_id"], name: "index_gifts_on_person_id"
