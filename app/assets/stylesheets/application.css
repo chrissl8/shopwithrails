@@ -209,7 +209,7 @@ a {
 /* The gift item name in each block */
 .gift-list-name {
   font-size: 2em;
-  font-family: 'Gloria Hallelujah';
+  font-family: 'Lora', serif;
 }
 
 .gift-list-item a {

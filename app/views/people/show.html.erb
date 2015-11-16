@@ -34,11 +34,9 @@
               <% end %>
             </div>
             <br>
-            <p class="gift-extra-data">
             <strong>Status: </strong>Not Purchased Yet<br>
             <strong>Store: </strong><%= gift.store %><br>
             <strong>Cost: </strong><%= number_to_currency(gift.price) %>
-            </p>
             <br>
             <%= link_to 'Remove', [gift.person, gift],
                          method: :delete,
@@ -63,11 +61,9 @@
                   <% end %>
                 </div>
                 <br>
-                <p class="gift-extra-data">
                 <strong>Status: </strong>Purchased<br>
                 <strong>Store: </strong><%= gift.store %><br>
                 <strong>Cost: </strong><%= number_to_currency(gift.price) %>
-                </p>
                 <br>
                 <%= link_to 'Remove', [gift.person, gift],
                              method: :delete,
