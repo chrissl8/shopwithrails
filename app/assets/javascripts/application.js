@@ -18,15 +18,15 @@
 $(document).on('ready page:load', function() {
 	
 	$('#toggle-open').on('click tap', function() {
-	  $('.gift-extra-data').slideDown(300);
+	  $('.gift-extra-data').slideDown(100);
 	});
 	
 	$('#toggle-closed').on('click tap', function() {
-	  $('.gift-extra-data').slideUp(300);
+	  $('.gift-extra-data').slideUp(100);
 	});
 	
 	$('.gift-list-name').on('click tap', function(){
-		$(this).parent().children().closest('.gift-extra-data').slideToggle(300);
+		$(this).parent().children().closest('.gift-extra-data').slideToggle(100);
 	});
 
 });

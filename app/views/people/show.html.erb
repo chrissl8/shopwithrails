@@ -19,64 +19,16 @@
 <div class="page-content">
   <p class="gift-instructions">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased">Purchased</span> or <span class="gift-list-item-not-purchased">Not Purchased</span>.</p>
     <% @person.gifts.each do |gift| %>
-    
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
-      <div class="gift-list-item gift-list-item-not-purchased">
-        <a class="gift-list-name"><%= gift.item %></a>
-          <div class="gift-extra-data">
-            <div class="gift-list-dates">
-              <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
-                if gift.created_at == gift.updated_at then%>
-                  Created <%= time_ago_in_words(gift.created_at) %> ago
-              <% else %>
-                  Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
-              <% end %>
-            </div>
-            <br>
-            <strong>Status: </strong>Not Purchased Yet<br>
-            <strong>Store: </strong><%= gift.store %><br>
-            <strong>Cost: </strong><%= number_to_currency(gift.price) %>
-            <br>
-            <%= link_to 'Remove', [gift.person, gift],
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' },
-                         class: 'app-link small-link gift-link'%> <br>
-            <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %> <br>
-            <%= link_to 'Purchase', purchased_true_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %>
-          </div>
-      </div>
+        <%= render 'gift', giftClass: 'gift-list-item-not-purchased', currentGift: gift, currentPerson: @person, giftStatus: 'Not Purchased Yet' %>
       <!-- End NOT-PURCHASED Gift Item -->
       <% elsif gift.purchased == 1 %>
-        <!-- Begin PURCHASED Gift Item -->
-        <div class="gift-list-item gift-list-item-purchased">
-          <a class="gift-list-name"><%= gift.item %></a>
-            <div class="gift-extra-data">
-                <div class="gift-list-dates">
-                  <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
-                    if gift.created_at == gift.updated_at then%>
-                      Created <%= time_ago_in_words(gift.created_at) %> ago
-                  <% else %>
-                      Created <%= time_ago_in_words(gift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(gift.updated_at) %> ago
-                  <% end %>
-                </div>
-                <br>
-                <strong>Status: </strong>Purchased<br>
-                <strong>Store: </strong><%= gift.store %><br>
-                <strong>Cost: </strong><%= number_to_currency(gift.price) %>
-                <br>
-                <%= link_to 'Remove', [gift.person, gift],
-                             method: :delete,
-                             data: { confirm: 'Are you sure?' },
-                             class: 'app-link small-link gift-link'%> <br>
-                <%= link_to 'Edit', edit_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %> <br>
-                <%= link_to 'Un-Purchase', purchased_false_person_gift_path(@person,gift), class: 'app-link small-link gift-link'  %>
-            </div>
-        </div>
+      <!-- Begin PURCHASED Gift Item -->
+        <%= render 'gift', giftClass: 'gift-list-item-purchased', currentGift: gift, currentPerson: @person, giftStatus: 'Purchased' %>
       <!-- End PURCHASED Gift Item -->
     <% end %>
-  </div>
-  <% end %>
+<% end %>
   <div>
     <a id="toggle-open" class="app-link small-link">Expand All</a> &#9733; 
     <a id="toggle-closed" class="app-link small-link">Collapse All</a>
