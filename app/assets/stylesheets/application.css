@@ -20,14 +20,14 @@ body {
   background-position: center center;
 	/* background-repeat: no-repeat;
 	background-size: cover; */
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
   margin: 0 0 0 0;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
   display: inline-block;
   cursor: pointer;
 }
@@ -53,7 +53,7 @@ a {
 }
 
 .title-text {
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 /* Header Box at top of each page */
@@ -209,7 +209,7 @@ a {
 /* The gift item name in each block */
 .gift-list-name {
   font-size: 2em;
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 .gift-list-item a {
@@ -227,7 +227,7 @@ a {
 /* Gift Form Styling */
 #gift_item, #gift_store, #gift_cost, #person_name, #gift_price, #username, #password, #user_username, #user_password {
   font-size: 1.2em;
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
   padding: .5em;
   border: 0px solid #22A7F0;
   background-color: white;
@@ -251,7 +251,7 @@ form input[type=submit] {
   cursor: pointer;
   -webkit-appearance: none;
   -webkit-border-radius: 4;
-  font-family: 'Lora', serif;
+  font-family: 'Hammersmith One', sans-serif;
   box-shadow: 0px 0px 6px #F08080;
 }
 

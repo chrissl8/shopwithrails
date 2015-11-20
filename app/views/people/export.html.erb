@@ -4,7 +4,7 @@
   <a class="app-link" href="javascript:window.print()">Print</a>
 </div>
 <div class="export-pane">
-  <% @people.each do |person| %>
+  <% current_user.people.each do |person| %>
     <h1> <%= person.name %></h1>
       <ul>
         <% if person.gifts.length < 1 then %>

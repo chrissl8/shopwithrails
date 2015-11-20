@@ -1,9 +1,9 @@
 <div class="header-nav">
-  <h1 class="title-text">ShopWithRails &#9733; Welcome, <%= current_user.username %>!</h1>
-  <p class="title-text-small">Click/Tap on a name to view or add gifts, or Add New Person to add someone new to your list.</p>
-  <p><span class="app-link small-link"><%= link_to 'Add New Person', new_person_path %></span> &#9733; 
+  <h1 class="title-text">ShopWithRails</h1>
+  <p class="title-text-small">Welcome, <%= current_user.username %>! Click/Tap on a name to view gifts, or Add to put someone new on your list.</p>
+  <p><span class="app-link small-link"><%= link_to 'New', new_person_path %></span> &#9733; 
   <span class="app-link small-link"><%= link_to 'Export', '/export' %></span> &#9733; 
-  <span class="app-link small-link"><%= link_to 'Log Out', logout_path %></span></p>
+  <span class="app-link small-link"><%= link_to 'Logout', logout_path %></span></p>
 </div>
 <div class="navspacer"></div>
 <div class="page-content">

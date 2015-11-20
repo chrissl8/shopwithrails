@@ -1,4 +1,5 @@
 class GiftsController < ApplicationController
+  #before_action :require_same_user
   
   def create
     @person = Person.find(params[:person_id])
@@ -44,6 +45,12 @@ class GiftsController < ApplicationController
   private
     def g_params
       params.require(:gift).permit(:item, :store, :cost, :price)
+    end
+    
+    def require_same_user
+      if current_user != Person.find(params[:person_id])
+        redirect_to people_path
+      end
     end
   
 end

@@ -1,6 +1,8 @@
 class PeopleController < ApplicationController
+  before_action :require_user
+  #before_action :require_same_user
   
-  http_basic_authenticate_with name: "admin", password: "admin", except: [:index, :show, :export]
+  #http_basic_authenticate_with name: "admin", password: "admin", except: [:index, :show, :export]
   
   #Index controller to list all people
   def index
@@ -60,5 +62,12 @@ class PeopleController < ApplicationController
   def p_params
     params.require(:person).permit(:name, :user_id)
   end
+  def require_same_user
+    if current_user.id != @person.user_id
+    redirect_to people_path
+    end
+  end
+  
+  
 
 end
