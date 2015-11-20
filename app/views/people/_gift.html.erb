@@ -19,6 +19,11 @@
                          data: { confirm: 'Are you sure?' },
                          class: 'app-link small-link gift-link'%> <br>
             <%= link_to 'Edit', edit_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %> <br>
+            <!-- Below logic added to address issue #25, where Purchased gifts to not have option to un-purchase -->
+            <% if currentGift.purchased == 0 then %>
             <%= link_to 'Purchase', purchased_true_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %>
+            <% elsif currentGift.purchased == 1 then %>
+            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %>
+            <% end %>
           </div>
       </div>
