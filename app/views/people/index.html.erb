@@ -1,12 +1,13 @@
 <div class="header-nav">
-  <h1 class="title-text">ShopWithRails &#9733; Home</h1>
+  <h1 class="title-text">ShopWithRails &#9733; Welcome, <%= current_user.username %>!</h1>
   <p class="title-text-small">Click/Tap on a name to view or add gifts, or Add New Person to add someone new to your list.</p>
   <p><span class="app-link small-link"><%= link_to 'Add New Person', new_person_path %></span> &#9733; 
-  <span class="app-link small-link"><%= link_to 'Export', '/export' %></span></p>
+  <span class="app-link small-link"><%= link_to 'Export', '/export' %></span> &#9733; 
+  <span class="app-link small-link"><%= link_to 'Log Out', logout_path %></span></p>
 </div>
 <div class="navspacer"></div>
 <div class="page-content">
-  <% @people.each do |person| %>
+  <% current_user.people.each do |person| %>
     <div class="person-list-item">
       <%= link_to person.name, person_path(person) %>
       <div class="person-list-dates">

@@ -30,6 +30,7 @@ class PeopleController < ApplicationController
   #Action to create new person
   def create
     @person = Person.new(p_params)
+    @person.user = current_user
     @person.save
     if @person.save
       redirect_to @person
@@ -57,7 +58,7 @@ class PeopleController < ApplicationController
   
   private
   def p_params
-    params.require(:person).permit(:name)
+    params.require(:person).permit(:name, :user_id)
   end
 
 end

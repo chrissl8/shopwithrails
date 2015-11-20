@@ -20,5 +20,14 @@ Rails.application.routes.draw do
   
   resources :gifts
   
+  
+  resources :users, except: [:new]
+  
+  get '/register', to: 'users#new'
+  
+  get '/login', to: "logins#new"
+  post '/login', to: "logins#create"
+  get '/logout', to: "logins#destroy"
+  
   root 'welcome#index'
 end
