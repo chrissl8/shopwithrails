@@ -17,13 +17,13 @@
             <%= link_to 'Remove', [currentGift.person, currentGift],
                          method: :delete,
                          data: { confirm: 'Are you sure?' },
-                         class: 'app-link small-link gift-link'%> <br>
-            <%= link_to 'Edit', edit_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %> <br>
+                         class: "btn btn-danger"%> 
+            <%= link_to 'Edit', edit_person_gift_path(currentPerson,currentGift), class: "btn btn-warning"  %> 
             <!-- Below logic added to address issue #25, where Purchased gifts to not have option to un-purchase -->
             <% if currentGift.purchased == 0 then %>
-            <%= link_to 'Purchase', purchased_true_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %>
+            <%= link_to 'Purchase', purchased_true_person_gift_path(currentPerson,currentGift), class: "btn btn-success"  %>
             <% elsif currentGift.purchased == 1 then %>
-            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(currentPerson,currentGift), class: 'app-link small-link gift-link'  %>
+            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(currentPerson,currentGift), class: "btn btn-danger"  %>
             <% end %>
           </div>
       </div>

@@ -16,7 +16,8 @@
 
 body {
   text-align: center;
-  background-image: url('http://www.chrisslaight.com/dev/paper-bg.jpg');
+  /* background-image: url('http://www.chrisslaight.com/dev/paper-bg.jpg'); */
+  background-color: #DFE2DB;
   background-position: center center;
 	/* background-repeat: no-repeat;
 	background-size: cover; */
@@ -28,7 +29,7 @@ a {
   text-decoration: none;
   color: inherit;
   font-family: 'Hammersmith One', sans-serif;
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
 }
 
@@ -213,7 +214,7 @@ a {
 }
 
 .gift-list-item a {
-  display: block;
+  /* display: block; */
 }
 
 .gift-list-dates {
@@ -326,7 +327,7 @@ and (orientation : portrait) {
 }
 
 .header-nav-show {
-  height: 5.5em;
+  height: 6em;
 }
 
 .navspacer { 
@@ -334,7 +335,7 @@ and (orientation : portrait) {
 }
 
 .navspacer-show { 
-  padding-top: 4.5em;
+  padding-top: 5.5em;
 }
 
 .header-nav-new {

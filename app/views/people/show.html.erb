@@ -1,4 +1,4 @@
-<div class="header-nav-show">
+<div class="header-nav-show navbar">
   <h1 class="title-text">Gift List for <% 
   #The following logic is to truncate names in excess of 16 characters due to header display issues
   @currname = String.new #define instance variable to store display name
@@ -8,12 +8,12 @@
     @currname = @person.name[0..16] + "..." #truncate anything after 16 characters and append ... to the end
   end
   %> <%= @currname %></h1>
-  <span class="app-link small-link"><%= link_to 'Home', controller: 'people' %></span> &#9733; 
-  <%= link_to 'Change Name', edit_person_path(@person), class: 'app-link small-link'  %> &#9733; 
+  <%= link_to 'Home', people_path, class: "btn btn-primary" %> 
+  <%= link_to 'Update', edit_person_path(@person), class: "btn btn-primary" %> 
   <%= link_to 'Remove', @person,
                     method: :delete,
                     data: { confirm: 'Are you sure?' },
-                    class: 'app-link small-link' %>
+                    class: "btn btn-danger" %>
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
