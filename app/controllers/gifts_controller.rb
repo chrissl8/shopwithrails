@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  #before_action :require_same_user
+  before_action :require_same_user
   
   def create
     @person = Person.find(params[:person_id])
@@ -48,8 +48,11 @@ class GiftsController < ApplicationController
     end
     
     def require_same_user
-      if current_user != Person.find(params[:person_id])
-        redirect_to people_path
+      @gift = Gift.find(params[:id])
+      if current_user != @gift.person.user || current_user.id == nil
+        flash[:danger] = "You are not authorized to view this gift!"
+        session[:user_id] = nil
+        redirect_to login_path
       end
     end
   

@@ -17,6 +17,11 @@ class PeopleController < ApplicationController
   #Edit action to edit person
   def edit
     @person = Person.find(params[:id])
+    if current_user != @person.user
+      flash[:danger] = "You are not authorized to edit this person!"
+      session[:user_id] = nil
+      redirect_to people_path
+    end
   end
   
   #Action to show person page
@@ -63,7 +68,10 @@ class PeopleController < ApplicationController
     params.require(:person).permit(:name, :user_id)
   end
   def require_same_user
-    if current_user.id != @person.user_id
+    @person = Person.find(params[:id])
+    if current_user != @person.user
+    flash[:danger] = "You are not authorized to view this person!"
+    session[:user_id] = nil
     redirect_to people_path
     end
   end

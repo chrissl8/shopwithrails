@@ -10,7 +10,12 @@
   <%= label_tag :password %><br>
   <%= password_field_tag :password %>
   </p>
-  <%= submit_tag 'Log In' %>
-  
+  <%= submit_tag 'Log In', class: "btn btn-success" %>
   <% end %>
+  <div class="error">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %>
+        </div>
+    <% end %>
+  </div>
 </div>

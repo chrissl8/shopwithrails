@@ -1,6 +1,6 @@
 <div class="header-nav-edit">
   <h1 class="title-text">Create New Person</h1>
-  <%= link_to 'Back', people_path, class: 'app-link' %>
+  <%= link_to 'Back', people_path, class: 'btn btn-primary' %>
 </div>
 <div class="navspacer-new"></div>
 <div class="form-item">
@@ -9,7 +9,7 @@
       <%= f.text_field :name, required: true, placeholder: 'Enter name here...', autofocus: true %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit :Submit, class: "btn btn-success" %>
     </p>
   <% end %>
 </div>

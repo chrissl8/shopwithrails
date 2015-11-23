@@ -30,8 +30,8 @@
     <% end %>
 <% end %>
   <div>
-    <a id="toggle-open" class="app-link small-link">Expand All</a> &#9733; 
-    <a id="toggle-closed" class="app-link small-link">Collapse All</a>
+    <a id="toggle-open" class="btn btn-primary">Expand All</a> &#9733; 
+    <a id="toggle-closed" class="btn btn-primary">Collapse All</a>
   </div>
   <div class="form-item">
     <h2>Add a gift:</h2>
@@ -46,7 +46,7 @@
         <%= f.text_field :price, placeholder: 'Enter Price...' %>
       </p>
       <p>
-        <%= f.submit %>
+        <%= f.submit :Submit, class: "btn btn-success" %>
       </p>
     <% end %>
   </div>

@@ -1,6 +1,6 @@
 <div class="header-nav-edit">
   <h1 class="title-text">Change Name &#9733; <%= @person.name %></h1>
-  <%= link_to 'Back', person_path, class: 'app-link' %>
+  <%= link_to 'Back', person_path, class: 'btn btn-primary' %>
 </div>
 <div class="navspacer-edit"></div>
 <div class="form-item">
@@ -10,7 +10,7 @@
       <%= f.text_field :name, required: true, autofocus: true %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit :Submit, class: "btn btn-success" %>
     </p>
   <% end %>
 </div>

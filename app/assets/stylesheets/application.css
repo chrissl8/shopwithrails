@@ -36,10 +36,13 @@ a {
 /* Welcome Page CSS */
 
 .welcome-container {
-  background-color: rgba(34, 167, 240, 0.7);
-  box-shadow: 0px 0px 7px #22A7F0;
+  /*background-color: rgba(34, 167, 240, 0.7);
+  box-shadow: 0px 0px 7px #22A7F0;*/
   margin: 5em 20%;
   padding: 3em;
+  background-color: #2980b9;
+  box-shadow: 0px 0px 7px #2980b9;
+  color: white;
 }
 
 .welcome-container a {
@@ -242,7 +245,7 @@ a {
   cursor: pointer;
 }
 
-/* Global button styling */
+/* Global button styling 
 form input[type=submit] {
   font-size: 1.2em;
   border: 0px solid #F08080;
@@ -259,6 +262,8 @@ form input[type=submit] {
 form input[type=submit]:hover {
   background-color: #F64747;
 }
+*/
+
 
 /* Export functionality styling */
 
@@ -290,8 +295,12 @@ and (orientation : portrait) {
   margin: 3em 2%;
 }
 
+.welcome-title {
+  font-size: 2em;
+}
+
 .welcome-container a {
-  padding: 10%;
+  font-size: 1.5em;
 }
   
 .header-box {
