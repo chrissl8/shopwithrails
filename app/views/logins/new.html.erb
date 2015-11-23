@@ -1,6 +1,5 @@
 <div class="form-item">
-  <h1>ShopWithRails &#9733; Log In</h1>
-  <span class="btn btn-primary"><%= link_to 'Back', root_path %></span>
+  <h1 class="user-heading">ShopWithRails &#9733; Log In</h1>
   <%= form_tag '/login' do %>
   <p>
   <%= label_tag :username %><br>
@@ -10,7 +9,7 @@
   <%= label_tag :password %><br>
   <%= password_field_tag :password %>
   </p>
-  <%= submit_tag 'Log In', class: "btn btn-success" %>
+  <span class="btn btn-primary"><%= link_to 'Back', root_path %></span> &#9733; <%= submit_tag 'Log In', class: "btn btn-success" %>
   <% end %>
   <div class="error">
     <% flash.each do |message_type, message| %>

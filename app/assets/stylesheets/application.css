@@ -16,8 +16,9 @@
 
 body {
   text-align: center;
-  /* background-image: url('http://www.chrisslaight.com/dev/paper-bg.jpg'); */
-  background-color: #DFE2DB;
+  /* background-image: url('http://www.chrisslaight.com/dev/paper-bg.jpg'); 
+  background-color: #DFE2DB; */
+  background-color: white;
   background-position: center center;
 	/* background-repeat: no-repeat;
 	background-size: cover; */
@@ -67,15 +68,13 @@ a {
   padding: 1em;
   background-color: rgba(34,167,240,.7);
   box-shadow: 0px 0px 7px #22A7F0;
-  border-radius: 4px;
 }
 
 .header-nav, .header-nav-show, .header-nav-new, .header-nav-edit {
-  background-color: rgba(34,167,240,.7);
-  box-shadow: 0px 0px 7px #22A7F0;
+  background-color: black;
+  color: white;
   width: 100%;
 	position: fixed;
-	/* margin: 0 auto; */
 	overflow: auto;
 }
 
@@ -115,11 +114,11 @@ a {
 
 /* Each block element for a person in the list */
 .person-list-item {
-  border: 1px;
+  border: 6px solid #2980b9;
   margin: .5em 20%;
   padding: 0.5em;
-  background-color: rgba(60,179,113,.7);
-  box-shadow: 0px 0px 7px #3CB371;
+  background-color: white;
+  box-shadow: 0px 0px 7px #2980b9;
   word-wrap: break-word; /* Fixes issue with display in rendering long names EDIT: doesnt really fix lol*/
   /* word-break: break-all;  Ok this actually fixes the problem */
   border-radius: 4px;
@@ -129,11 +128,11 @@ a {
 .person-list-item a {
   display: block;
 }
-
+/*
 .person-list-item:hover {
   background-color: rgba(0,200,113,.7);
 }
-
+*/
 .person-list-dates {
   font-size: 0.4em;
 }
@@ -171,10 +170,8 @@ a {
 
 /* Styling for each gift in list */
 .gift-list-item {
-  border: 1px;
+  border: 6px solid;
   margin: 1.5em 20%;
-  background-color: rgba(173,216,230,.7);
-  box-shadow: 0px 0px 7px #ADD8E6;
   word-wrap: break-word;
   border-radius: 4px;
   padding: 0.3em;
@@ -182,14 +179,22 @@ a {
 
 /* Styling for each Purchased gift in list */
 .gift-list-item-purchased {
-  background-color: rgba(153,255,153,.7);
-  box-shadow: 0px 0px 7px rgb(153,255,153);
+  border: 6px solid #26A65B;
+  background-color: white;
+  box-shadow: 0px 0px 7px #26A65B;
+  color: #26A65B;
 }
 
 /* Styling for each Non-Purchased gift in list */
 .gift-list-item-not-purchased {
-  background-color: rgba(255,153,153,.7);
-  box-shadow: 0px 0px 7px rgb(255,153,153);
+  border: 6px solid #CF000F;
+  background-color: white;
+  box-shadow: 0px 0px 7px #CF000F;
+  color: #CF000F;
+}
+
+.gift-type-sm {
+  border: 2px;
 }
 
 .gift-extra-data {
@@ -205,8 +210,9 @@ a {
   border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: rgba(89,171,227,.7);
-  box-shadow: 0px 0px 7px #59ABE3;
+  background-color: #2980b9;
+  box-shadow: 0px 0px 7px #2980b9;
+  color: white;
   border-radius: 4px;
 }
 
@@ -215,11 +221,11 @@ a {
   font-size: 2em;
   font-family: 'Hammersmith One', sans-serif;
 }
-
+/*
 .gift-list-item a {
-  /* display: block; */
+   display: block; 
 }
-
+*/
 .gift-list-dates {
   font-size: 1em;
 }
@@ -238,6 +244,7 @@ a {
   box-shadow: 0px 0px 6px #22A7F0 inset;
   border-radius: 4px;
   -webkit-appearance: none;
+  color: black;
 }
 
 /* Specific style for toggle button */
@@ -301,6 +308,10 @@ and (orientation : portrait) {
 
 .welcome-container a {
   font-size: 1.5em;
+}
+
+.user-heading {
+  font-size: 1.2em;
 }
   
 .header-box {

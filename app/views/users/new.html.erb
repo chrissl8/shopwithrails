@@ -1,6 +1,5 @@
 <div class="form-item">
-  <h1>ShopWithRails &#9733; Create New User</h1>
-  <span class="btn btn-primary"><%= link_to 'Back', root_path %></span>
+  <h1 class="user-heading">ShopWithRails &#9733; Create New User</h1>
   <%= form_for @user do |f| %>
     <p>
       <%= f.text_field :username, required: true, placeholder: 'Enter Username' %>
@@ -9,7 +8,7 @@
       <%= f.password_field :password, required: true, placeholder: 'Enter Password' %>
     </p>
     <p>
-      <%= f.submit %>
+      <span class="btn btn-primary"><%= link_to 'Back', root_path %></span> &#9733; <%= f.submit :Submit, class: "btn btn-success" %>
     </p>
   <% end %>
 </div>
