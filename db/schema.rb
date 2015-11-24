@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119002127) do
+ActiveRecord::Schema.define(version: 20151124153903) do
 
   create_table "gifts", force: :cascade do |t|
     t.string   "item"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20151119002127) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "is_active",       default: 0
   end
 
 end

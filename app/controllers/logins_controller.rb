@@ -6,7 +6,7 @@ class LoginsController < ApplicationController
   
   def create
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password]) && user.is_active > 0
       session[:user_id] = user.id
       redirect_to people_path
     else
