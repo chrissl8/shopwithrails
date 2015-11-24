@@ -8,16 +8,18 @@
     @currname = @person.name[0..16] + "..." #truncate anything after 16 characters and append ... to the end
   end
   %> <%= @currname %></h1>
-  <%= link_to 'Home', people_path, class: "btn btn-primary" %> 
-  <%= link_to 'Update', edit_person_path(@person), class: "btn btn-primary" %> 
-  <%= link_to 'Remove', @person,
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' },
-                    class: "btn btn-danger" %>
+  <div class="btn-group" role="group">
+    <%= link_to 'Home', people_path, class: "btn btn-primary" %> 
+    <%= link_to 'Update', edit_person_path(@person), class: "btn btn-primary" %> 
+    <%= link_to 'Remove', @person,
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      class: "btn btn-danger" %>
+  </div>
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
-  <p class="gift-instructions">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.</p>
+  <p class="gift-instructions well">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.</p>
     <% @person.gifts.each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->

@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_action :require_same_user
+  before_action :require_same_user, except: [:create]
   
   def create
     @person = Person.find(params[:person_id])

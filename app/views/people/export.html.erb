@@ -1,24 +1,25 @@
 <div class="header-box">
   <h1>Export Gift List</h1>
-  <span class="app-link"><%= link_to 'Home', controller: 'people' %></span> &#9733; 
-  <a class="app-link" href="javascript:window.print()">Print</a>
+  <div class="btn-group" role="group">
+  <span class="btn btn-primary"><%= link_to 'Home', controller: 'people' %></span>
+  <a class="btn btn-primary" href="javascript:window.print()">Print</a>
+  </div>
 </div>
 <div class="export-pane">
   <% current_user.people.each do |person| %>
     <h1> <%= person.name %></h1>
       <ul>
         <% if person.gifts.length < 1 then %>
-          <li class="no-gifts">You get no gifts!</li>
+          <li class="no-gifts">No gifts added yet!</li>
         <% else %>
           <% person.gifts.each do |gift| %>
-            <li><%= gift.item %>
-            <% #The following logic exists to hide the Store & Cost attributes if they're left blank
-              if gift.store.length == 0 && gift.cost.length == 0 then #first check to see if they're both blank
-            %>
-             - &#9634;
-            <% else #otherwise, display the Store/Cost attributes for this gift
-            %> - Store: <%= gift.store %> - Cost: <%= gift.cost %> - &#9634;
-            <% end #end if-else logic for store/cost%>
+            <li>
+            <% if gift.purchased == 1 then %>  
+            <span class="export-purchased"><%= gift.item %></span>
+            <% elsif gift.purchased == 0 %>
+            <span class="export-not-purchased"><%= gift.item %></span>
+            <% end %>
+            <span class="text-muted"> • Store: <%= gift.store %> • Price: <%= gift.price %></span>
             </li>
           <% end %>
       <% end %>

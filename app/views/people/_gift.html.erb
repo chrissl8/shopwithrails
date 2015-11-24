@@ -1,6 +1,6 @@
 <div class="gift-list-item <%= giftClass %>">
         <a class="gift-list-name"><%= currentGift.item %></a>
-          <div class="gift-extra-data">
+          <div class="gift-extra-data well">
             <div class="gift-list-dates">
               <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
                 if currentGift.created_at == currentGift.updated_at then%>
@@ -14,16 +14,18 @@
             <strong>Store: </strong><%= currentGift.store %><br>
             <strong>Cost: </strong><%= number_to_currency(currentGift.price) %>
             <br>
-            <%= link_to 'Remove', [currentGift.person, currentGift],
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' },
-                         class: "btn btn-danger"%> 
-            <%= link_to 'Edit', edit_person_gift_path(currentPerson,currentGift), class: "btn btn-warning"  %> 
-            <!-- Below logic added to address issue #25, where Purchased gifts to not have option to un-purchase -->
-            <% if currentGift.purchased == 0 then %>
-            <%= link_to 'Purchase', purchased_true_person_gift_path(currentPerson,currentGift), class: "btn btn-success"  %>
-            <% elsif currentGift.purchased == 1 then %>
-            <%= link_to 'Un-Purchase', purchased_false_person_gift_path(currentPerson,currentGift), class: "btn btn-danger"  %>
-            <% end %>
+            <div class="btn-group" role="group">
+              <%= link_to 'Remove', [currentGift.person, currentGift],
+                           method: :delete,
+                           data: { confirm: 'Are you sure?' },
+                           class: "btn btn-danger"%> 
+              <%= link_to 'Edit', edit_person_gift_path(currentPerson,currentGift), class: "btn btn-warning"  %> 
+              <!-- Below logic added to address issue #25, where Purchased gifts to not have option to un-purchase -->
+              <% if currentGift.purchased == 0 then %>
+              <%= link_to 'Purchase', purchased_true_person_gift_path(currentPerson,currentGift), class: "btn btn-success"  %>
+              <% elsif currentGift.purchased == 1 then %>
+              <%= link_to 'Un-Purchase', purchased_false_person_gift_path(currentPerson,currentGift), class: "btn btn-danger"  %>
+              <% end %>
+              </div>
           </div>
       </div>

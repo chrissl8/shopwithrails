@@ -10,6 +10,7 @@ class LoginsController < ApplicationController
       session[:user_id] = user.id
       redirect_to people_path
     else
+      #flash[:danger] = "Incorrect username/password."
       render 'new'
     end
   end

@@ -1,12 +1,16 @@
 <div class="header-nav navbar">
   <h1 class="title-text">ShopWithRails</h1>
-  <p class="title-text-small">Welcome, <%= current_user.username %>! Click/Tap on a name to view gifts, or Add to put someone new on your list.</p>
-  <%= link_to 'New', new_person_path, class: "btn btn-primary" %> 
-  <%= link_to 'Export', '/export', class: "btn btn-primary" %> 
-  <%= link_to 'Logout', logout_path, class: "btn btn-danger" %></p>
+  <div class="btn-group" role="group">
+    <%= link_to 'New', new_person_path, class: "btn btn-primary" %> 
+    <%= link_to 'Export', '/export', class: "btn btn-primary" %> 
+    <%= link_to 'Logout', logout_path, class: "btn btn-danger" %>
+  </div>
 </div>
 <div class="navspacer"></div>
 <div class="page-content">
+  <div class="well title-text-small">
+    Welcome, <%= current_user.username %>! Click/Tap on a name to view gifts, or Add to put someone new on your list.
+  </div>
   <% current_user.people.each do |person| %>
     <div class="person-list-item">
       <%= link_to person.name, person_path(person) %>
