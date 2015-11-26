@@ -29,5 +29,7 @@ Rails.application.routes.draw do
   post '/login', to: "logins#create"
   get '/logout', to: "logins#destroy"
   
+  get '/admin', to: "users#index"
+  
   root 'welcome#index'
 end

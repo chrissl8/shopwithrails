@@ -298,6 +298,22 @@ form input[type=submit]:hover {
   line-height: 1em;
 }
 
+/* Styling for Admin Components */
+
+#admin-table {
+  float: none;
+  margin: 0 auto;
+}
+
+.admin-column {
+  float: none;
+  margin: 0 auto;
+}
+
+#user_is_active {
+  font-size: 2em;
+}
+
 
 /* Responsive CSS Media Query for Mobile Devices */
 @media only screen  

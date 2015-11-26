@@ -1,0 +1,29 @@
+<div class="header-nav navbar">
+  <h1 class="title-text">ShopWithRails Edit User</h1>
+  <div class="btn-group" role="group">
+    <%= link_to 'Back', admin_path, class: 'btn btn-primary' %> 
+    <%= link_to 'Logout', logout_path, class: "btn btn-danger" %>
+  </div>
+</div>
+<div class="navspacer"></div>
+<p>Editing User.</p>
+<div class="form-item">
+  <%= form_for @user, url: user_path(@user), method: :patch do |f| %>
+    <p>
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      User Status<br>
+      <%= f.select :is_active, [['Inactive', 0], ['Active', 1], ['Admin', 2]] %>
+    </p>
+      
+    <p>
+      <%= f.submit :Submit, class: "btn btn-success" %>
+    </p>
+  <% end %>
+</div>

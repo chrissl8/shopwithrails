@@ -1,0 +1,34 @@
+<div class="header-nav navbar">
+  <h1 class="title-text">ShopWithRails Admin Console</h1>
+  <div class="btn-group" role="group">
+    <%= link_to 'Back', people_path, class: 'btn btn-primary' %> 
+    <%= link_to 'Logout', logout_path, class: "btn btn-danger" %>
+  </div>
+</div>
+
+<div class="navspacer"></div>
+<p>Below is a list of all users in the system.</p>
+<div class="row">
+  <div class="col-xs-8 centered admin-column">
+    <table id="admin-table" class="table table-striped table-bordered" align="center">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Status</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%=link_to user.username, edit_user_path(user) %></td>
+          <% if user.is_active < 1 then %>
+          <td>Inactive</td>
+          <% elsif user.is_active < 2 then %>
+          <td>Active</td>
+          <% else %>
+          <td>Admin</td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
