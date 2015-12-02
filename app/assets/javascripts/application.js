@@ -28,5 +28,11 @@ $(document).on('ready page:load', function() {
 	$('.gift-list-name').on('click tap', function(){
 		$(this).parent().children().closest('.gift-extra-data').slideToggle(100);
 	});
+	/*
+	$('#close-error').on('click tap', function() {
+		alert('Works');
+	  $('.alert').fadeOut(100);
+	});
+	*/
 
 });

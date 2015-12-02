@@ -19,7 +19,8 @@
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
-  <p class="gift-instructions well">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.</p>
+  <p class="gift-instructions well">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.
+  <br><br>Total Gift Cost <%= number_to_currency(@person.gifts.sum(:price)) %></p>
     <% @person.gifts.each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->

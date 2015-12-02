@@ -6,11 +6,14 @@ class LoginsController < ApplicationController
   
   def create
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password]) && user.is_active > 0
+    if user && user.authenticate(params[:password]) && user.is_active == 0  
+      flash[:danger] = "User has not been activated, contact Administrator!"
+      render 'new'
+    elsif user && user.authenticate(params[:password]) && user.is_active > 0
       session[:user_id] = user.id
       redirect_to people_path
     else
-      #flash[:danger] = "Incorrect username/password."
+      flash[:danger] = "Invalid username or password!"
       render 'new'
     end
   end
