@@ -312,6 +312,7 @@ form input[type=submit]:hover {
 
 #user_is_active {
   font-size: 2em;
+  color: black;
 }
 
 
@@ -417,6 +418,17 @@ and (orientation : portrait) {
 
 .small-link {
   font-size: 1em;
+}
+
+.gift-form h2 {
+  font-size: 1em;
+  margin-top: 0px;
+}
+
+#gift_item, #gift_store, #gift_price {
+  font-size: 1em;
+  width: 90%;
+  
 }
 
 }

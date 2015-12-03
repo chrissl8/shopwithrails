@@ -20,6 +20,9 @@
 <div class="navspacer-show"></div>
 <div class="page-content">
   <p class="gift-instructions well">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.
+  <%
+    
+  %>
   <br><br>Total Gift Cost <%= number_to_currency(@person.gifts.sum(:price)) %></p>
     <% @person.gifts.each do |gift| %>
     <% if gift.purchased == 0 then %>
@@ -36,7 +39,7 @@
     <a id="toggle-open" class="btn btn-primary">Expand All</a> &#9733; 
     <a id="toggle-closed" class="btn btn-primary">Collapse All</a>
   </div>
-  <div class="form-item">
+  <div class="form-item gift-form">
     <h2>Add a gift:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>
       <p>
