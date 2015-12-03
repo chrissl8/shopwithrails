@@ -21,9 +21,13 @@
 <div class="page-content">
   <p class="gift-instructions well">Click/Tap a gift to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.
   <%
-    
+    totalNotPurchased = @person.gifts.where(purchased: 0).sum(:price)
+    totalPurchased = @person.gifts.where(purchased: 1).sum(:price)
+    totalCost = @person.gifts.sum(:price)
   %>
-  <br><br>Total Gift Cost <%= number_to_currency(@person.gifts.sum(:price)) %></p>
+  <br><br><span class="export-not-purchased"><%= number_to_currency(totalNotPurchased) %> left to spend.</span> &#9733; 
+          <span class="export-purchased"><%= number_to_currency(totalPurchased) %> spent.</span> <br> 
+          <span class="export-total">Grand total of <%= number_to_currency(totalCost) %>.</span></p>
     <% @person.gifts.each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
