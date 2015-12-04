@@ -6,8 +6,36 @@
   </div>
 </div>
 <div class="export-pane">
+  <div class="well export-statistics">
+    <% #Contains all calculated variables, will be moved to controller eventually
+      totalPersonCount = current_user.people.count(:all)
+      
+      totalGiftCount = 0
+      totalNotPurchasedCost = 0
+      totalNotPurchasedCount = 0
+      totalPurchasedCost = 0
+      totalPurchasedCount = 0
+      totalCost = 0
+      current_user.people.each do |person|
+        totalGiftCount += person.gifts.count(:all)
+        totalNotPurchasedCost += person.gifts.where(purchased: 0).sum(:price)
+        totalNotPurchasedCount += person.gifts.where(purchased: 0).count(:all)
+        totalPurchasedCost += person.gifts.where(purchased: 1).sum(:price)
+        totalPurchasedCount += person.gifts.where(purchased: 1).count(:all)
+        totalCost += person.gifts.sum(:price)
+      end
+    %>
+    Summary Export of <%= current_user.username %>'s List<br>
+    Your list has <span class="export-total"><%= pluralize(totalPersonCount, 'person')%></span> and 
+    <span class="export-total"><%= pluralize(totalGiftCount, 'gift') %></span>.
+    <br>You've spent <span class="export-purchased"><%= number_to_currency(totalPurchasedCost) %></span> 
+      on <%= pluralize(totalPurchasedCount, 'gift') %> with 
+      <span class="export-not-purchased"><%= number_to_currency(totalNotPurchasedCost) %></span> left to spend on 
+      <%= pluralize(totalNotPurchasedCount, 'gift') %>, for a grand total of 
+      <span class="export-total"><%= number_to_currency(totalCost) %></span>.
+  </div>
   <% current_user.people.each do |person| %>
-    <h1> <%= person.name %></h1>
+    <h1> <%= link_to person.name, person_path(person) %></h1>
       <ul>
         <% if person.gifts.length < 1 then %>
           <li class="no-gifts">No gifts added yet!</li>
@@ -19,9 +47,19 @@
             <% elsif gift.purchased == 0 %>
             <span class="export-not-purchased"><%= gift.item %></span>
             <% end %>
-            <span class="text-muted"> • Store: <%= gift.store %> • Price: <%= gift.price %></span>
+            <span class="text-muted"> • Store: <%= gift.store %> • Price: <%= number_to_currency(gift.price) %></span>
             </li>
           <% end %>
+          <%
+            totalNotPurchasedPerson = person.gifts.where(purchased: 0).sum(:price)
+            totalPurchasedPerson = person.gifts.where(purchased: 1).sum(:price)
+            totalCostPerson = person.gifts.sum(:price)
+          %>
+          <li>
+            Total of <span class="export-purchased"><%= number_to_currency(totalPurchasedPerson) %></span> spent with 
+            <span class="export-not-purchased"><%= number_to_currency(totalNotPurchasedPerson) %></span> left to spend, for a total amount of 
+            <span class="export-total"><%= number_to_currency(totalCostPerson) %></span>.
+          </li>
       <% end %>
     </ul>
   <% end %>
