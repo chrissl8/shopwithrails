@@ -438,7 +438,10 @@ and (orientation : portrait) {
 #gift_item, #gift_store, #gift_price {
   font-size: 1em;
   width: 90%;
-  
+}
+
+#admin-table {
+  margin-left: -50px;
 }
 
 }

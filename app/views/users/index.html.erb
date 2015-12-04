@@ -16,6 +16,8 @@
         <th>ID</th>
         <th>Username</th>
         <th>Status</th>
+        <th>Persons</th>
+        <th>Gifts</th>
       </tr>
       <% @users.each do |user| %>
         <tr>
@@ -28,6 +30,14 @@
           <% else %>
           <td>Admin</td>
           <% end %>
+          <td><%= user.people.count(:all) %></td>
+          <%
+            totalGiftCountPerUser = 0
+            user.people.each do |person|
+            totalGiftCountPerUser += person.gifts.count(:all)
+          end
+          %>
+          <td><%= totalGiftCountPerUser %></td>
         </tr>
       <% end %>
     </table>
