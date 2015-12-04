@@ -319,6 +319,12 @@ form input[type=submit]:hover {
   color: black;
 }
 
+.admin-username {
+  color: darkgray;
+  background-color: lightgrey;
+  cursor: not-allowed;
+}
+
 
 /* Responsive CSS Media Query for Mobile Devices */
 @media only screen  

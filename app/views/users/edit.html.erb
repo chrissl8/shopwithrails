@@ -10,17 +10,26 @@
 <div class="form-item">
   <%= form_for @user, url: user_path(@user), method: :patch do |f| %>
     <p>
+      <% if @user.username == "admin" then %>
+      <%= f.label :username %><br>
+      <%= f.text_field :username, :readonly => true, class: "admin-username" %>
+      <% else %>
       <%= f.label :username %><br>
       <%= f.text_field :username %>
+      <% end %>
     </p>
     <p>
       <%= f.label :password %><br>
       <%= f.password_field :password %>
     </p>
-    <p>
+    <% if @user.username == "admin" then %>
+      <% else %>
+      <p>
       User Status<br>
       <%= f.select :is_active, [['Inactive', 0], ['Active', 1], ['Admin', 2]] %>
-    </p>
+      </p>
+      <% end %>
+    
       
     <p>
       <%= f.submit :Submit, class: "btn btn-success" %>
