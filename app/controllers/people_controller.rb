@@ -7,6 +7,8 @@ class PeopleController < ApplicationController
   #Index controller to list all people
   def index
     @people = Person.all
+    
+    
   end
   
   #Export controller to list all people with gifts
