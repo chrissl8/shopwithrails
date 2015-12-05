@@ -128,44 +128,9 @@ a {
 .person-list-item a {
   display: block;
 }
-/*
-.person-list-item:hover {
-  background-color: rgba(0,200,113,.7);
-}
-*/
+
 .person-list-dates {
   font-size: 0.4em;
-}
-
-/* The person's name in each block 
-.person-list-name {
-  font-size: 2em;
-  word-wrap: break-word;  Fixes issue with display in rendering long names 
-   The below is for better visibility for Person names on the Index screen 
-  background-color: #019875;
-  border-radius: 4px;
-  padding: .05em 1em;
-  margin: 0px 10%;
-}
-
-.person-list-name a {
-  display: block;
-}
-
-*/
-
-/* Application-wide link style */
-.app-link {
-    border: 0px solid #F08080;
-    background-color: #F08080;
-    padding: .5em;
-    border-radius: 4px;
-    font-size: 1.2em;
-    box-shadow: 0px 0px 6px #F08080;
-}
-
-.app-link:hover {
-  background-color: #F64747;
 }
 
 /* Styling for each gift in list */
@@ -219,13 +184,13 @@ a {
 
 /* Styling for all form box elements */
 .form-item {
-  border: 1px;
+  border: 6px solid #2980b9;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: #2980b9;
   box-shadow: 0px 0px 7px #2980b9;
-  color: white;
+  color: #2980b9;
   border-radius: 4px;
+  background-color: white;
 }
 
 /* The gift item name in each block */
@@ -251,9 +216,9 @@ a {
   font-size: 1.2em;
   font-family: 'Hammersmith One', sans-serif;
   padding: .5em;
-  border: 0px solid #22A7F0;
+  border: 6px solid #2980b9;
   background-color: white;
-  box-shadow: 0px 0px 6px #22A7F0 inset;
+  box-shadow: 0px 0px 7px #2980b9;
   border-radius: 4px;
   -webkit-appearance: none;
   color: black;
@@ -263,26 +228,6 @@ a {
 #toggle-button {
   cursor: pointer;
 }
-
-/* Global button styling 
-form input[type=submit] {
-  font-size: 1.2em;
-  border: 0px solid #F08080;
-  background-color: #F08080;
-  padding: .5em;
-  border-radius: 4px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -webkit-border-radius: 4;
-  font-family: 'Hammersmith One', sans-serif;
-  box-shadow: 0px 0px 6px #F08080;
-}
-
-form input[type=submit]:hover {
-  background-color: #F64747;
-}
-*/
-
 
 /* Export functionality styling */
 
@@ -378,7 +323,7 @@ and (orientation : portrait) {
 }
 
 .form-item {
-  margin: 1.5em 0%;
+  margin: 1.5em 2%;
 }
 
 .header-nav-show {
