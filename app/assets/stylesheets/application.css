@@ -270,6 +270,13 @@ a {
   cursor: not-allowed;
 }
 
+.input-group {
+  margin: 0 auto;
+}
+
+.navbar {
+  z-index: 9999;
+}
 
 /* Responsive CSS Media Query for Mobile Devices */
 @media only screen  
