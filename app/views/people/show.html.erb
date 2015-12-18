@@ -28,7 +28,7 @@
   <br><br><span class="export-not-purchased"><%= number_to_currency(totalNotPurchased) %> left to spend.</span> &#9733; 
           <span class="export-purchased"><%= number_to_currency(totalPurchased) %> spent.</span> <br> 
           <span class="export-total">Grand total of <%= number_to_currency(totalCost) %>.</span></p>
-    <% @person.gifts.each do |gift| %>
+    <% @person.gifts.order("created_at desc").each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
         <%= render 'gift', giftClass: 'gift-list-item-not-purchased', currentGift: gift, currentPerson: @person, giftStatus: 'Not Purchased Yet' %>

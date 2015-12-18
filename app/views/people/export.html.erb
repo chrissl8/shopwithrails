@@ -34,13 +34,13 @@
       <%= pluralize(totalNotPurchasedCount, 'gift') %>, for a grand total of 
       <span class="export-total"><%= number_to_currency(totalCost) %></span>.
   </div>
-  <% current_user.people.each do |person| %>
+  <% current_user.people.order("created_at desc").each do |person| %>
     <h1> <%= link_to person.name, person_path(person) %></h1>
       <ul>
         <% if person.gifts.length < 1 then %>
           <li class="no-gifts">No gifts added yet!</li>
         <% else %>
-          <% person.gifts.each do |gift| %>
+          <% person.gifts.order("created_at desc").each do |gift| %>
             <li>
             <% if gift.purchased == 1 then %>  
             <span class="export-purchased"><%= gift.item %></span>

@@ -244,7 +244,7 @@ a {
 }
 
 .export-pane li {
-  line-height: 1em;
+  line-height: 1.5em;
 }
 
 /* Styling for Admin Components */
@@ -280,7 +280,7 @@ a {
 
 /* Responsive CSS Media Query for Mobile Devices */
 @media only screen  
-and (max-device-width : 375px) 
+and (max-device-width : 414px) 
 and (orientation : portrait) {
   
 /* Welcome Page CSS */
