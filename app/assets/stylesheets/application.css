@@ -18,8 +18,8 @@ body {
   text-align: center;
   background-image: url('http://chrisslaight.com/dev/snow-background.jpg');
   background-color: white;
-  background-position: center center;
-	/* background-repeat: no-repeat; 
+  /*background-position: center center;
+	background-repeat: no-repeat; 
 	background-size: cover; */
   font-family: 'Hammersmith One', sans-serif;
   margin: 0 0 0 0;
@@ -65,8 +65,8 @@ a {
   border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: #2980b9;
-  box-shadow: 0px 0px 7px #2980b9;
+  background-color: black;
+  box-shadow: 0px 0px 7px black;
   color: white;
 }
 
@@ -238,6 +238,10 @@ a {
   padding: 0.5em;
 }
 
+.remaining-pane {
+  display: none;
+}
+
 .no-gifts {
   font-weight: 700;
   color: red;
@@ -331,6 +335,7 @@ and (orientation : portrait) {
 
 .form-item {
   margin: 1.5em 2%;
+  -webkit-margin: 1.5em 2%;
 }
 
 .header-nav-show {

@@ -1,13 +1,6 @@
 <div class="header-box">
   <h1>Export Gift List</h1>
-  <div class="btn-group" role="group">
-  <span class="btn btn-primary"><%= link_to 'Home', controller: 'people' %></span>
-  <a class="btn btn-primary" href="javascript:window.print()">Print</a>
-  </div>
-</div>
-<div class="export-pane">
-  <div class="well export-statistics">
-    <% #Contains all calculated variables, will be moved to controller eventually
+  <% #Contains all calculated variables, will be moved to controller eventually
       totalPersonCount = current_user.people.count(:all)
       
       totalGiftCount = 0
@@ -25,7 +18,18 @@
         totalCost += person.gifts.sum(:price)
       end
     %>
-    Summary Export of <%= current_user.username %>'s List<br>
+  <div class="btn-group" role="group">
+  <%= link_to 'Home', people_path, class: "btn btn-primary" %>
+  <% if totalNotPurchasedCount > 0 then %>
+  <a class="btn btn-success" id="toggle-all">All Gifts</a>
+  <a class="btn btn-success" id="toggle-remaining">Remaining</a>
+  <% end %>
+  <a class="btn btn-primary" href="javascript:window.print()">Print</a>
+  </div>
+</div>
+<div class="export-pane export-default">
+  <div class="well export-statistics">
+    <center><b>Summary of <%= current_user.username %>'s Gift List</b></center>
     Your list has <span class="export-total"><%= pluralize(totalPersonCount, 'person')%></span> and 
     <span class="export-total"><%= pluralize(totalGiftCount, 'gift') %></span>.
     <br>You've spent <span class="export-purchased"><%= number_to_currency(totalPurchasedCost) %></span> 
@@ -61,6 +65,23 @@
             <span class="export-total"><%= number_to_currency(totalCostPerson) %></span>.
           </li>
       <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="export-pane remaining-pane">
+  <div class="well export-statistics">
+  <center><b>Remaining items to purchase on <%= current_user.username %>'s Gift List</b></center>
+  </div>
+  <% current_user.people.order("created_at desc").each do |person| %>
+      <ul>
+          <% person.gifts.order("created_at desc").each do |gift| %>
+            <% if gift.purchased == 0 %>
+            <li>
+            <span class="export-not-purchased"><%= gift.item %></span> for <%= link_to person.name, person_path(person) %>
+            </li>
+            <% end %>
+        <% end %>
     </ul>
   <% end %>
 </div>
