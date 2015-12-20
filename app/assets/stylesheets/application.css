@@ -48,7 +48,7 @@ a {
   /*background-color: rgba(34, 167, 240, 0.7);
   box-shadow: 0px 0px 7px #22A7F0;*/
   margin: 5em 20%;
-  padding: 3em;
+  padding: 1em;
   background-color: #2980b9;
   box-shadow: 0px 0px 7px #2980b9;
   color: white;
@@ -300,6 +300,7 @@ and (orientation : portrait) {
 
 .welcome-container {
   margin: 3em 2%;
+  padding: 1em 0em 1em 0em;
 }
 
 .welcome-title {
