@@ -38,13 +38,13 @@
       <%= pluralize(totalNotPurchasedCount, 'gift') %>, for a grand total of 
       <span class="export-total"><%= number_to_currency(totalCost) %></span>.
   </div>
-  <% current_user.people.order("created_at desc").each do |person| %>
+  <% current_user.people.order("created_at asc").each do |person| %>
     <h1> <%= link_to person.name, person_path(person) %></h1>
       <ul>
         <% if person.gifts.length < 1 then %>
           <li class="no-gifts">No gifts added yet!</li>
         <% else %>
-          <% person.gifts.order("created_at desc").each do |gift| %>
+          <% person.gifts.order("created_at asc").each do |gift| %>
             <li>
             <% if gift.purchased == 1 then %>  
             <span class="export-purchased"><%= gift.item %></span>
@@ -73,9 +73,9 @@
   <div class="well export-statistics">
   <center><b>Remaining items to purchase on <%= current_user.username %>'s Gift List</b></center>
   </div>
-  <% current_user.people.order("created_at desc").each do |person| %>
+  <% current_user.people.order("created_at asc").each do |person| %>
       <ul>
-          <% person.gifts.order("created_at desc").each do |gift| %>
+          <% person.gifts.order("created_at asc").each do |gift| %>
             <% if gift.purchased == 0 %>
             <li>
             <span class="export-not-purchased"><%= gift.item %></span> for <%= link_to person.name, person_path(person) %>
