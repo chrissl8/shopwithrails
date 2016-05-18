@@ -1,7 +1,7 @@
 <div class="header-nav navbar">
   <h1 class="title-text">ShopWithRails</h1>
   <div class="btn-group" role="group">
-    <%= link_to 'Gift Summary', '/export', class: "btn btn-primary" %> 
+    <%= link_to 'List Overview', '/export', class: "btn btn-primary" %> 
     <% if current_user.is_active > 1 then %><%= link_to 'Admin', admin_path, class: "btn btn-warning" %><% end %>
     <%= link_to 'Logout', logout_path, class: "btn btn-danger" %>
   </div>
@@ -9,7 +9,7 @@
 <div class="navspacer"></div>
 <div class="page-content">
   <div class="well title-text-small">
-    Welcome, <%= current_user.username %>! Click/Tap on a name to view gifts, or add someone new below.
+    Welcome, <%= current_user.username %>! Click/Tap on a list for access to its items, or create a new list below.
   </div>
   <% current_user.people.order("created_at asc").each do |person| %>
     <div class="person-list-item">
@@ -25,9 +25,8 @@
     </div>
 <% end %>
   <div class="person-list-item">
-    <%= link_to 'Create New Person', new_person_path, class: "btn btn-primary" %>
+    <%= link_to 'New List', new_person_path, class: "btn btn-primary" %>
     <div class="person-list-dates">
-      <br>Click/Tap above to create a new person!
     </div>
   </div>
 

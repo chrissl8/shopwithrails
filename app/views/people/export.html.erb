@@ -1,5 +1,5 @@
 <div class="header-box">
-  <h1>Summary of Gift List</h1>
+  <h1>List Overview</h1>
   <% #Contains all calculated variables, will be moved to controller eventually
       totalPersonCount = current_user.people.count(:all)
       
@@ -21,7 +21,7 @@
   <div class="btn-group" role="group">
   <%= link_to 'Home', people_path, class: "btn btn-primary" %>
   <% if totalNotPurchasedCount > 0 then %>
-  <a class="btn btn-success" id="toggle-all">All Gifts</a>
+  <a class="btn btn-success" id="toggle-all">All Items</a>
   <a class="btn btn-success" id="toggle-remaining">Remaining</a>
   <% end %>
   <a class="btn btn-primary" href="javascript:window.print()">Print</a>
@@ -29,13 +29,13 @@
 </div>
 <div class="export-pane export-default">
   <div class="well export-statistics">
-    <center><b>Summary of <%= current_user.username %>'s Gift List</b></center>
-    Your list has <span class="export-total"><%= pluralize(totalPersonCount, 'person')%></span> and 
-    <span class="export-total"><%= pluralize(totalGiftCount, 'gift') %></span>.
+    <center><b>Summary of <%= current_user.username %>'s Lists</b></center>
+    You have <span class="export-total"><%= pluralize(totalPersonCount, 'list')%></span> and 
+    <span class="export-total"><%= pluralize(totalGiftCount, 'item') %></span>.
     <br>You've spent <span class="export-purchased"><%= number_to_currency(totalPurchasedCost) %></span> 
-      on <%= pluralize(totalPurchasedCount, 'gift') %> with 
+      on <%= pluralize(totalPurchasedCount, 'item') %> with 
       <span class="export-not-purchased"><%= number_to_currency(totalNotPurchasedCost) %></span> left to spend on 
-      <%= pluralize(totalNotPurchasedCount, 'gift') %>, for a grand total of 
+      <%= pluralize(totalNotPurchasedCount, 'item') %>, for a grand total of 
       <span class="export-total"><%= number_to_currency(totalCost) %></span>.
   </div>
   <% current_user.people.order("created_at asc").each do |person| %>
@@ -71,7 +71,7 @@
 
 <div class="export-pane remaining-pane">
   <div class="well export-statistics">
-  <center><b>Remaining items to purchase on <%= current_user.username %>'s Gift List</b></center>
+  <center><b>Remaining items to purchase on <%= current_user.username %>'s Lists</b></center>
   </div>
   <% current_user.people.order("created_at asc").each do |person| %>
       <ul>

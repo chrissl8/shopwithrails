@@ -16,12 +16,13 @@
 
 body {
   text-align: center;
-  background-image: url('http://chrisslaight.com/dev/snow-background.jpg');
-  background-color: white;
+  /* background-image: url('http://chrisslaight.com/dev/snow-background.jpg'); */
+  background-color: #F5F5F5;
   /*background-position: center center;
 	background-repeat: no-repeat; 
-	background-size: cover; */
-  font-family: 'Hammersmith One', sans-serif;
+	background-size: cover; 
+  font-family: 'Hammersmith One', sans-serif; */
+  font-family: 'Karla', sans-serif;
   margin: 0 0 0 0;
 }
 
@@ -37,7 +38,8 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  font-family: 'Hammersmith One', sans-serif;
+  /*font-family: 'Hammersmith One', sans-serif;*/
+  font-family: 'Karla', sans-serif;
   /* display: inline-block; */
   cursor: pointer;
 }
@@ -49,16 +51,16 @@ a {
   box-shadow: 0px 0px 7px #22A7F0;*/
   margin: 5em 20%;
   padding: 1em;
-  background-color: #2980b9;
-  box-shadow: 0px 0px 7px #2980b9;
+  background-color: #333333;
+  box-shadow: 0px 0px 7px #333333;
   color: white;
 }
 
 .welcome-container a {
   padding: 2%;
   font-size: 1.5em;
-  background-color: rgba(60, 179, 113, 0.7);
-  box-shadow: 0px 0px 7px #3CB371;
+  background-color: #333333;
+  box-shadow: 0px 0px 7px #333333;
 }
 
 .welcome-title {
@@ -66,7 +68,7 @@ a {
 }
 
 .title-text {
-  font-family: 'Hammersmith One', sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 
 /* Header Box at top of each page */
@@ -74,13 +76,13 @@ a {
   border: 1px;
   margin: 1.5em 20%;
   padding: 1em;
-  background-color: black;
+  background-color: #333333;
   box-shadow: 0px 0px 7px black;
   color: white;
 }
 
 .header-nav, .header-nav-show, .header-nav-new, .header-nav-edit {
-  background-color: black;
+  background-color: #333333;
   color: white;
   width: 100%;
 	position: fixed;
@@ -193,11 +195,11 @@ a {
 
 /* Styling for all form box elements */
 .form-item {
-  border: 6px solid #2980b9;
+  border: 6px solid #333333;
   margin: 1.5em 20%;
   padding: 1em;
-  box-shadow: 0px 0px 7px #2980b9;
-  color: #2980b9;
+  box-shadow: 0px 0px 7px #333333 inset;
+  color: #333333;
   border-radius: 4px;
   background-color: white;
 }
@@ -205,7 +207,7 @@ a {
 /* The gift item name in each block */
 .gift-list-name {
   font-size: 2em;
-  font-family: 'Hammersmith One', sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 /*
 .gift-list-item a {
@@ -223,14 +225,14 @@ a {
 /* Gift Form Styling */
 #gift_item, #gift_store, #gift_cost, #person_name, #gift_price, #username, #password, #user_username, #user_password {
   font-size: 1.2em;
-  font-family: 'Hammersmith One', sans-serif;
+  font-family: 'Karla', sans-serif;
   padding: .5em;
-  border: 6px solid #2980b9;
+  border: 6px solid #333333;
   background-color: white;
-  box-shadow: 0px 0px 7px #2980b9;
+  box-shadow: 0px 0px 2px #333333 inset;
   border-radius: 4px;
   -webkit-appearance: none;
-  color: black;
+  color: #333333;
 }
 
 /* Specific style for toggle button */
