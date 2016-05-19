@@ -19,7 +19,7 @@
         if person.created_at == person.updated_at then%>
         Created <%= time_ago_in_words(person.created_at) %> ago
         <% else %>
-        Created <%= time_ago_in_words(person.created_at) %> ago &#9733; Updated <%= time_ago_in_words(person.updated_at) %> ago
+        Created <%= time_ago_in_words(person.created_at) %> ago &#8226; Updated <%= time_ago_in_words(person.updated_at) %> ago
         <% end %>
       </div>
     </div>

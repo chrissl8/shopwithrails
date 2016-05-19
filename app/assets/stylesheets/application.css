@@ -157,7 +157,7 @@ a {
 .gift-list-item-purchased {
   border: 6px solid #26A65B;
   background-color: white;
-  box-shadow: 0px 0px 7px #26A65B;
+  box-shadow: 0px 0px 2px #26A65B;
   color: #26A65B;
 }
 
@@ -165,7 +165,7 @@ a {
 .gift-list-item-not-purchased {
   border: 6px solid #CF000F;
   background-color: white;
-  box-shadow: 0px 0px 7px #CF000F;
+  box-shadow: 0px 0px 2px #CF000F;
   color: #CF000F;
 }
 

@@ -6,7 +6,7 @@
                 if currentGift.created_at == currentGift.updated_at then%>
                   Created <%= time_ago_in_words(currentGift.created_at) %> ago
               <% else %>
-                  Created <%= time_ago_in_words(currentGift.created_at) %> ago &#9733; Updated <%= time_ago_in_words(currentGift.updated_at) %> ago
+                  Created <%= time_ago_in_words(currentGift.created_at) %> ago &#8226; Updated <%= time_ago_in_words(currentGift.updated_at) %> ago
               <% end %>
             </div>
             <br>
