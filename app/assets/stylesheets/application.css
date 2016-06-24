@@ -69,6 +69,7 @@ a {
 
 .title-text {
   font-family: 'Karla', sans-serif;
+  text-shadow: 0px 0px 16px white;
 }
 
 /* Header Box at top of each page */
@@ -146,7 +147,7 @@ a {
 
 /* Styling for each gift in list */
 .gift-list-item {
-  border: 6px solid;
+  /* border: 6px solid; */
   margin: 1.5em 20%;
   word-wrap: break-word;
   border-radius: 4px;
@@ -155,17 +156,17 @@ a {
 
 /* Styling for each Purchased gift in list */
 .gift-list-item-purchased {
-  border: 6px solid #26A65B;
+  /* border: 6px solid #26A65B;
   background-color: white;
-  box-shadow: 0px 0px 2px #26A65B;
+  box-shadow: 0px 0px 2px #26A65B; */
   color: #26A65B;
 }
 
 /* Styling for each Non-Purchased gift in list */
 .gift-list-item-not-purchased {
-  border: 6px solid #CF000F;
+  /* border: 6px solid #CF000F;
   background-color: white;
-  box-shadow: 0px 0px 2px #CF000F;
+  box-shadow: 0px 0px 2px #CF000F; */
   color: #CF000F;
 }
 
@@ -206,8 +207,9 @@ a {
 
 /* The gift item name in each block */
 .gift-list-name {
-  font-size: 2em;
+  font-size: 3.5em;
   font-family: 'Karla', sans-serif;
+  text-decoration: none;
 }
 /*
 .gift-list-item a {
@@ -330,7 +332,7 @@ and (orientation : portrait) {
 }
 
 .gift-list-name {
-  font-size: 1.5em;
+  font-size: 2.2em;
 }
 
 .gift-list-dates {
