@@ -47,9 +47,7 @@ a {
 /* Welcome Page CSS */
 
 .welcome-container {
-  /*background-color: rgba(34, 167, 240, 0.7);
-  box-shadow: 0px 0px 7px #22A7F0;*/
-  margin: 5em 20%;
+  margin: 5em 33%;
   padding: 1em;
   background-color: #333333;
   box-shadow: 0px 0px 7px #333333;
@@ -197,7 +195,17 @@ a {
 /* Styling for all form box elements */
 .form-item {
   border: 6px solid #333333;
-  margin: 1.5em 20%;
+  margin: 1.5em 4%;
+  padding: 1em;
+  box-shadow: 0px 0px 7px #333333 inset;
+  color: #333333;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.login-form-item {
+  border: 6px solid #333333;
+  margin: 1.5em 4%;
   padding: 1em;
   box-shadow: 0px 0px 7px #333333 inset;
   color: #333333;
@@ -229,12 +237,16 @@ a {
   font-size: 1.2em;
   font-family: 'Karla', sans-serif;
   padding: .5em;
-  border: 6px solid #333333;
+  border: 2px solid #333333;
   background-color: white;
   box-shadow: 0px 0px 2px #333333 inset;
   border-radius: 4px;
   -webkit-appearance: none;
   color: #333333;
+}
+
+.btn-login-style {
+  background-color: #333333;
 }
 
 /* Specific style for toggle button */
