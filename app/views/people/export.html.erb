@@ -51,7 +51,7 @@
             <% elsif gift.purchased == 0 %>
             <span class="export-not-purchased"><%= gift.item %></span>
             <% end %>
-            <span class="text-muted"> • Store: <%= gift.store %> • Price: <%= number_to_currency(gift.price) %></span>
+            <span class="text-muted"> <% if gift.store.length < 1 then %> <% else %> • <%= gift.store %> <% end %><% if gift.price == nil then %> <% else %>• <%= number_to_currency(gift.price) %><% end %></span>
             </li>
           <% end %>
           <%
@@ -59,11 +59,14 @@
             totalPurchasedPerson = person.gifts.where(purchased: 1).sum(:price)
             totalCostPerson = person.gifts.sum(:price)
           %>
+          <% if totalCostPerson == nil || totalCostPerson == 0 then %>
+          <% else %>
           <li>
             Total of <span class="export-purchased"><%= number_to_currency(totalPurchasedPerson) %></span> spent with 
             <span class="export-not-purchased"><%= number_to_currency(totalNotPurchasedPerson) %></span> left to spend, for a total amount of 
             <span class="export-total"><%= number_to_currency(totalCostPerson) %></span>.
           </li>
+          <% end %>
       <% end %>
     </ul>
   <% end %>

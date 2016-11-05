@@ -47,13 +47,13 @@
     <h2>New Item:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>
       <p>
-        <%= f.text_field :item, required: true, placeholder: 'Enter Item...' %>
+        <%= f.text_field :item, required: true, placeholder: 'Item name (required).' %>
       </p>
       <p>
-        <%= f.text_field :store, placeholder: 'Enter Store...' %>
+        <%= f.text_area :store, placeholder: 'Describe this item (optional).', :class => 'description-text-area' %>
       </p>
       <p>
-        <%= f.text_field :price, placeholder: 'Enter Price...' %>
+        <%= f.text_field :price, placeholder: 'Price (optional).' %>
       </p>
       <p>
         <%= f.submit :Submit, class: "btn btn-success" %>

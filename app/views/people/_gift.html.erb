@@ -10,9 +10,9 @@
               <% end %>
             </div>
             <br>
+            <span class="gift-description"><%= currentGift.store %></span> <% if currentGift.store.length < 1 then %> <% else %> <br><br> <% end %>
             <strong>Status: </strong><%= giftStatus %><br>
-            <strong>Store: </strong><%= currentGift.store %><br>
-            <strong>Cost: </strong><%= number_to_currency(currentGift.price) %>
+            <% if currentGift.price == nil || currentGift.price == 0 then %> <% else %><strong>Cost: </strong><%= number_to_currency(currentGift.price) %> <% end %>
             <br>
             <div class="btn-group" role="group">
               <%= link_to 'Remove', [currentGift.person, currentGift],
