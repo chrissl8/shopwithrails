@@ -135,6 +135,11 @@ a {
   font-size: 2em;
 }
 
+.person-list-dates-text {
+  font-size: 1.2em;
+}
+
+
 .person-list-item a {
   display: block;
 }
@@ -346,6 +351,7 @@ and (orientation : portrait) {
 .person-list-item {
   margin: .5em 2%;
 }
+
 
 .gift-list-item {
   margin: 1.5em 2%;

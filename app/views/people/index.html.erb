@@ -15,6 +15,12 @@
     <div class="person-list-item">
       <%= link_to person.name, person_path(person) %>
       <div class="person-list-dates">
+        <%
+        #Used to calculate total number of items per list
+        listsGiftCount = 0
+        listsGiftCount = person.gifts.count
+        %>
+        <span class="person-list-dates-text"><%= pluralize(listsGiftCount,'item') %></span> <br>
         <% #The following logic sets only the date created to display if the created & updated are the same (new record with no updates)
         if person.created_at == person.updated_at then%>
         Created <%= time_ago_in_words(person.created_at) %> ago
