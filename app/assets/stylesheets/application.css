@@ -16,14 +16,14 @@
 
 body {
   text-align: center;
-  /* background-image: url('http://chrisslaight.com/dev/snow-background.jpg'); */
   background-color: #F5F5F5;
-  /*background-position: center center;
-	background-repeat: no-repeat; 
-	background-size: cover; 
-  font-family: 'Hammersmith One', sans-serif; */
   font-family: 'Karla', sans-serif;
   margin: 0 0 0 0;
+}
+
+body.login-page {
+  background-image: url("http://www.chrisslaight.com/images/swrbg.jpg");
+  background-position: center center;
 }
 
 .btn {
