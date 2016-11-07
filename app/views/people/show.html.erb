@@ -31,7 +31,7 @@
     <% @person.gifts.order("created_at asc").each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
-        <%= render 'gift', giftClass: 'gift-list-item-not-purchased', currentGift: gift, currentPerson: @person, giftStatus: 'Not Purchased Yet' %>
+        <%= render 'gift', giftClass: 'gift-list-item-not-purchased', currentGift: gift, currentPerson: @person, giftStatus: 'Not Purchased' %>
       <!-- End NOT-PURCHASED Gift Item -->
       <% elsif gift.purchased == 1 %>
       <!-- Begin PURCHASED Gift Item -->
