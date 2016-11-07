@@ -38,5 +38,21 @@ $(document).on('ready page:load', function() {
 	  $('.export-default').hide();
 	  $('.remaining-pane').show();
 	});
+	
+	//Added to help show purchased, non-purchased or all items
+	$('#toggle-show-all').on('click tap', function() {
+	  $('.gift-list-item-purchased').show();
+	  $('.gift-list-item-not-purchased').show();
+	});
+	
+	$('#toggle-show-p').on('click tap', function() {
+	  $('.gift-list-item-purchased').show();
+	  $('.gift-list-item-not-purchased').hide();
+	});
+	
+	$('#toggle-show-np').on('click tap', function() {
+	  $('.gift-list-item-purchased').hide();
+	  $('.gift-list-item-not-purchased').show();
+	});
 
 });

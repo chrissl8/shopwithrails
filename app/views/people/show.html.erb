@@ -2,10 +2,10 @@
   <h1 class="title-text"><% 
   #The following logic is to truncate names in excess of 16 characters due to header display issues
   @currname = String.new #define instance variable to store display name
-  if @person.name.length < 16 then #if the name is less than 16 chars
+  if @person.name.length < 50 then #if the name is less than 16 chars
     @currname = @person.name #just show the name
   else #otherwise...
-    @currname = @person.name[0..16] + "..." #truncate anything after 16 characters and append ... to the end
+    @currname = @person.name[0..50] + "..." #truncate anything after 16 characters and append ... to the end
   end
   %> <%= @currname %></h1>
   <div class="btn-group" role="group">
@@ -19,7 +19,7 @@
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
-  <p class="gift-instructions well">Click/Tap an item to view details, edit, remove or mark it as <span class="gift-list-item-purchased gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased gift-type-sm">Not Purchased</span>.
+  <p class="gift-instructions well">Click/Tap an item to view details, edit, remove or mark it as <span class="gift-list-item-purchased-txt gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased-txt gift-type-sm">Not Purchased</span>.
   <%
     totalNotPurchased = @person.gifts.where(purchased: 0).sum(:price)
     totalPurchased = @person.gifts.where(purchased: 1).sum(:price)
@@ -39,10 +39,19 @@
       <!-- End PURCHASED Gift Item -->
     <% end %>
 <% end %>
-  <div>
-    <a id="toggle-open" class="btn btn-primary">Expand All</a> &#9733; 
-    <a id="toggle-closed" class="btn btn-primary">Collapse All</a>
+
+  <div class="btn-group" role="group">
+    <a id="toggle-open" class="btn btn-primary">Expand All</a>  
+    <a id="toggle-closed" class="btn btn-warning">Collapse All</a>
   </div>
+  <br><br>
+  <div class="btn-group" role="group">
+    <a id="toggle-show-all" class="btn btn-primary">Show All</a>  
+    <a id="toggle-show-p" class="btn btn-warning">Purchased</a>
+    <a id="toggle-show-np" class="btn btn-warning">Not Purchased</a>
+  </div>
+  
+  
   <div class="form-item gift-form">
     <h2>New Item:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>

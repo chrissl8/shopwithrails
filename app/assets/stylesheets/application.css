@@ -167,6 +167,22 @@ a {
   color: #CF000F;
 }
 
+.gift-list-item-purchased-txt {
+  color: #26A65B;
+}
+
+.gift-list-item-not-purchased-txt {
+  color: #CF000F;
+}
+
+#toggle-show-p {
+  background-color: #26A65B;
+}
+
+#toggle-show-np {
+  background-color: #CF000F;
+}
+
 .gift-description {
   color: #333333;
 }
