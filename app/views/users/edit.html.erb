@@ -1,7 +1,14 @@
 <div class="header-nav navbar">
   <h1 class="title-text">ShopWithRails Edit User</h1>
   <div class="btn-group" role="group">
-    <%= link_to 'Back', admin_path, class: 'btn btn-primary' %> 
+    <%= link_to 'Back', admin_path, class: 'btn btn-primary' %>
+    <% if @user.username == "admin" then %>
+    <% else %>
+    <%= link_to 'Delete User', @user,
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      class: "btn btn-warning" %>
+    <% end %>
     <%= link_to 'Logout', logout_path, class: "btn btn-danger" %>
   </div>
 </div>
