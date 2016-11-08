@@ -21,7 +21,7 @@
   <div class="btn-group" role="group">
   <%= link_to 'Home', people_path, class: "btn btn-primary" %>
   <% if totalNotPurchasedCount > 0 then %>
-  <a class="btn btn-success" id="toggle-all">All Items</a>
+  <a class="btn btn-success disabled" id="toggle-all">All Items</a>
   <a class="btn btn-success" id="toggle-remaining">Remaining</a>
   <% end %>
   <a class="btn btn-primary" href="javascript:window.print()">Print</a>

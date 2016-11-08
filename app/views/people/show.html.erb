@@ -19,15 +19,17 @@
 </div>
 <div class="navspacer-show"></div>
 <div class="page-content">
-  <p class="gift-instructions well">Click/Tap an item to view details, edit, remove or mark it as <span class="gift-list-item-purchased-txt gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased-txt gift-type-sm">Not Purchased</span>.
-  <%
-    totalNotPurchased = @person.gifts.where(purchased: 0).sum(:price)
-    totalPurchased = @person.gifts.where(purchased: 1).sum(:price)
-    totalCost = @person.gifts.sum(:price)
-  %>
-  <br><br><span class="export-not-purchased"><%= number_to_currency(totalNotPurchased) %> left to spend.</span> &#8226; 
-          <span class="export-purchased"><%= number_to_currency(totalPurchased) %> spent.</span> <br> 
-          <span class="export-total">Grand total of <%= number_to_currency(totalCost) %>.</span></p>
+  <div class="gift-instructions well">Click/Tap an item to view details, edit, remove or mark it as <span class="gift-list-item-purchased-txt gift-type-sm">Purchased</span> or <span class="gift-list-item-not-purchased-txt gift-type-sm">Not Purchased</span>.
+  <br>
+  Filter Items:<br>
+  <div class="btn-group" role="group">
+    <a id="toggle-show-p" class="btn btn-warning">Purchased</a>
+    <a id="toggle-show-all" class="btn btn-primary disabled">Show All</a>
+    <a id="toggle-show-np" class="btn btn-warning">Not Purchased</a>
+  </div>
+  
+     
+  </div>
     <% @person.gifts.order("created_at asc").each do |gift| %>
     <% if gift.purchased == 0 then %>
       <!-- Begin NOT-PURCHASED Gift Item -->
@@ -39,19 +41,22 @@
       <!-- End PURCHASED Gift Item -->
     <% end %>
 <% end %>
-
+<div class="list-footer well">
   <div class="btn-group" role="group">
     <a id="toggle-open" class="btn btn-primary">Expand All</a>  
-    <a id="toggle-closed" class="btn btn-warning">Collapse All</a>
+    <a id="toggle-closed" class="btn btn-primary disabled">Collapse All</a>
   </div>
-  <br><br>
-  <div class="btn-group" role="group">
-    <a id="toggle-show-all" class="btn btn-primary">Show All</a>  
-    <a id="toggle-show-p" class="btn btn-warning">Purchased</a>
-    <a id="toggle-show-np" class="btn btn-warning">Not Purchased</a>
-  </div>
-  
-  
+  <br>
+  <%
+    totalNotPurchased = @person.gifts.where(purchased: 0).sum(:price)
+    totalPurchased = @person.gifts.where(purchased: 1).sum(:price)
+    totalCost = @person.gifts.sum(:price)
+  %>
+  <br>
+  <span class="export-not-purchased"><%= number_to_currency(totalNotPurchased) %> left to spend.</span> &#8226; 
+  <span class="export-purchased"><%= number_to_currency(totalPurchased) %> spent.</span> <br> 
+  <span class="export-total">Grand total of <%= number_to_currency(totalCost) %>.</span>
+</div>  
   <div class="form-item gift-form">
     <h2>New Item:</h2>
     <%= form_for([@person, @person.gifts.build]) do |f| %>

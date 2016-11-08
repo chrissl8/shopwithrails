@@ -148,15 +148,16 @@ a {
   font-size: 0.4em;
 }
 
+.list-footer {
+  margin: 0.2em 20%;
+}
+
 
 /* Styling for each gift in list */
 .gift-list-item {
-  /* border: 6px solid; */
-  margin: 0em 20%;
+  margin: 0.2em 20%;
   word-wrap: break-word;
-  /* border-radius: 4px; */
   padding: 0.3em;
-  /*
   border: 0px solid #f5f5f5;
   background-color: #f5f5f5;
   border-top-color: #ccc;
@@ -165,21 +166,20 @@ a {
   border-right-width: 1px;
   border-bottom-color: #ccc;
   border-bottom-width: 1px;
-  */
 }
 
 /* Styling for each Purchased gift in list */
 .gift-list-item-purchased {
   color: #26A65B;
-  /*border-left-color: #26A65B;
-  border-left-width: thick;*/
+  border-left-color: #26A65B;
+  border-left-width: thick;
 }
 
 /* Styling for each Non-Purchased gift in list */
 .gift-list-item-not-purchased {
   color: #CF000F;
-  /*border-left-color: #CF000F;
-  border-left-width: thick;*/
+  border-left-color: #CF000F;
+  border-left-width: thick;
 }
 
 .gift-list-item-purchased-txt {
@@ -375,7 +375,7 @@ and (orientation : portrait) {
 }
 
 
-.gift-list-item {
+.gift-list-item, .list-footer {
   margin: 0.2em 2%;
 }
 
