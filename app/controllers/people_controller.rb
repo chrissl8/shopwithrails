@@ -16,6 +16,7 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
   
+  
   #Edit action to edit person
   def edit
     @person = Person.find(params[:id])

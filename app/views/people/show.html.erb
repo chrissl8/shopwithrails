@@ -9,8 +9,8 @@
   end
   %> <%= @currname %></h1>
   <div class="btn-group" role="group">
-    <%= link_to 'Home', people_path, class: "btn btn-primary" %> 
-    <%= link_to 'Rename', edit_person_path(@person), class: "btn btn-primary" %> 
+    <%= link_to 'Home', people_path, class: "btn btn-primary" %>
+    <%= link_to 'Rename', edit_person_path(@person), class: "btn btn-warning" %> 
     <%= link_to 'Remove', @person,
                       method: :delete,
                       data: { confirm: 'Are you sure?' },
